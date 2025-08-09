@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emilija Gjorgjevska - Progressive Software Engineer & GenAI Strategist</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --turquoise: #20B2AA;
+            --dark-turquoise: #008B8B;
+            --gray-900: #111111;
+            --gray-800: #1a1a1a;
+            --gray-700: #2a2a2a;
+            --gray-600: #3a3a3a;
+            --gray-300: #d1d5db;
+            --gray-200: #e5e7eb;
+            --gray-100: #f3f4f6;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--black);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Animated Background */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.03;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--white) 0%, var(--gray-100) 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-content {
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: clamp(2.2rem, 5vw, 4.5rem);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--black) 0%, var(--gray-600) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--gray-700);
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            margin-bottom: 48px;
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 24px;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--black);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 600px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 100;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 50px;
+            padding: 8px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-link {
+            padding: 12px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            color: var(--gray-700);
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        /* Strategy Canvas */
+        .strategy-section {
+            padding: 120px 0;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-300);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .strategy-grid {
+            display: block;
+            width: 100%;
+        }
+
+        .radar-container {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            margin: 0 auto;
+            overflow: auto;
+            border-radius: 20px;
+            background: rgba(26, 26, 26, 0.5);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .radar-wrapper {
+            width: 100%;
+            height: 100%;
+            min-width: 700px;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .comparison-legend {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+        }
+
+        .strategy-insights {
+            space-y: 32px;
+        }
+
+        .insight-card {
+            background: var(--gray-900);
+            border: 1px solid var(--gray-700);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .insight-card:hover {
+            border-color: var(--gray-600);
+            transform: translateX(8px);
+        }
+
+        .insight-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--white);
+        }
+
+        .insight-description {
+            color: var(--gray-300);
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 120px 0;
+            background: var(--gray-100);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 48px;
+            margin-top: 80px;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--black) 0%, var(--gray-600) 100%);
+        }
+
+        .project-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 32px 64px rgba(0,0,0,0.15);
+            border-color: var(--gray-300);
+        }
+
+        .project-header {
+            padding: 40px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .project-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--black);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: var(--white);
+            font-size: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: var(--black);
+        }
+
+        .project-tagline {
+            color: var(--gray-600);
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        .project-content {
+            padding: 40px;
+        }
+
+        .project-description {
+            color: var(--gray-700);
+            line-height: 1.7;
+            margin-bottom: 32px;
+            font-size: 1.125rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .tech-tag {
+            background: var(--gray-900);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: var(--gray-800);
+            transform: translateY(-2px);
+        }
+
+        /* Experience Section */
+        .experience-section {
+            padding: 120px 0;
+            background: var(--white);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 80px auto 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gray-300);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 60px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 20px;
+            padding: 40px;
+            width: 45%;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            border-color: var(--gray-400);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.1);
+        }
+
+        .timeline-date {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--black);
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 30px;
+            font-weight: 700;
+            white-space: nowrap;
+            border: 4px solid var(--white);
+        }
+
+        .timeline-role {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--black);
+            margin-bottom: 8px;
+        }
+
+        .timeline-company {
+            color: var(--gray-600);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .timeline-description {
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        /* Community Section */
+        .community-section {
+            padding: 120px 0;
+            background: var(--gray-900);
+            color: var(--white);
+        }
+
+        .collaboration-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 32px;
+            margin-top: 80px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .collaboration-card {
+            background: var(--gray-800);
+            border: 1px solid var(--gray-700);
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .collaboration-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--turquoise) 0%, var(--dark-turquoise) 100%);
+        }
+
+        .collaboration-card:hover {
+            border-color: var(--turquoise);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(32, 178, 170, 0.15);
+        }
+
+        .collaboration-icon {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            color: var(--turquoise);
+        }
+
+        .collaboration-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .collaboration-description {
+            color: var(--gray-300);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .work-context-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .context-card {
+            background: var(--gray-800);
+            border: 1px solid var(--gray-700);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .context-card:hover {
+            border-color: var(--gray-600);
+            transform: translateY(-4px);
+        }
+
+        .context-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .context-description {
+            color: var(--gray-300);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .context-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .highlight-tag {
+            background: var(--white);
+            color: var(--black);
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .industry-expertise {
+            margin-top: 60px;
+            background: var(--gray-800);
+            border-radius: 20px;
+            padding: 40px;
+        }
+
+        .industry-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .industry-category {
+            background: var(--gray-700);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .category-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .industry-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .industry-tag {
+            background: var(--black);
+            color: var(--white);
+            padding: 8px 12px;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .industry-additional {
+            text-align: center;
+            padding: 24px;
+            background: var(--gray-700);
+            border-radius: 16px;
+            color: var(--gray-300);
+            line-height: 1.6;
+        }
+
+        .industry-additional strong {
+            color: var(--white);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 24px 32px;
+            background: var(--white);
+            border: 2px solid var(--gray-300);
+            transition: all 0.3s ease;
+            min-height: 80px;
+        }
+
+        .contact-item:hover {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-link {
+            text-decoration: none;
+            color: inherit;
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .strategy-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .radar-container {
+                height: 60vh;
+                padding: 20px;
+            }
+
+            .radar-wrapper {
+                min-width: 350px;
+                min-height: 350px;
+            }
+
+            .radar-wrapper canvas {
+                width: 350px !important;
+                height: 350px !important;
+            }
+
+            .nav {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin-bottom: 40px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+                padding-left: 60px;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-date {
+                left: 20px;
+                transform: translateY(-50%);
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .collaboration-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .collaboration-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .animate-slide-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .animate-slide-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        /* === Overrides for readability and square design === */
+
+        /* Make hero name solid and highly readable */
+        .hero-title {
+            background: none !important;
+            -webkit-background-clip: initial !important;
+            -webkit-text-fill-color: initial !important;
+            background-clip: initial !important;
+            color: var(--black) !important;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.2), 0 2px 12px rgba(0,0,0,0.08);
+            letter-spacing: -0.015em;
+        }
+
+        /* Reduce excessive whitespace to "fill gaps" where sections felt too airy */
+        .hero-grid { gap: 48px !important; }
+        .section-header { margin-bottom: 56px !important; }
+        .projects-grid { gap: 32px !important; }
+        .timeline { margin: 56px auto 0 !important; }
+        .strategy-section, .projects-section, .experience-section, .community-section, .contact-section {
+            padding: 80px 0 !important;
+        }
+
+        /* Remove rounded corners across the design for a crisp, square look */
+        * { border-radius: 0 !important; }
+        /* Keep true circles as circles where they communicate meaning (e.g., legend dots) */
+        .legend-color { border-radius: 50% !important; }
+
+        /* Nav buttons: keep crisp squares and slightly tighter padding */
+        .nav-link { border-radius: 0 !important; padding: 12px 18px !important; }
+
+        /* Timeline date: make rectangular and reduce border thickness to avoid pill look */
+        .timeline-date {
+            border-radius: 0 !important;
+            border-width: 2px !important;
+        }
+
+        /* Cards: remove rounded shapes and tighten spacing a bit to visually fill gaps */
+        .stat-item, .project-card, .project-icon, .project-link, .timeline-content,
+        .collaboration-card, .contact-item, .industry-category, .industry-expertise,
+        .industry-additional, .context-card, .industry-tag, .tech-tag, .highlight-tag {
+            border-radius: 0 !important;
+        }
+
+        /* Ensure hero title doesn't wrap awkwardly on large screens */
+        .hero-title { white-space: normal; word-break: keep-all; }
+    </style>
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="background-animation" id="backgroundAnimation"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-links">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#strategy" class="nav-link">Strategy</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#community" class="nav-link">Community</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <h1 class="hero-title">Emilija Gjorgjevska</h1>
+                    <p class="hero-subtitle">Progressive Software Engineer & GenAI Strategist</p>
+                    <p class="hero-description">
+                        Artificially intelligent, naturally sentient. Cross-functional engineering leader bridging AI innovation, 
+                        product strategy, and marketing excellence. Open-source contributor specializing in semantic web technologies, 
+                        knowledge graphs, and enterprise AI transformation.
+                    </p>
+                    
+                    <div style="margin-bottom: 48px; padding: 20px; background: var(--gray-100); border-left: 4px solid var(--black);">
+                        <p style="margin: 0; font-size: 1rem; color: var(--black); font-weight: 500; line-height: 1.6;">
+                            <strong style="color: var(--black);">GenAI-enablement stack:</strong> Loveable, Claude Max, Gemini Pro, ChatGPT Plus, Adobe Firefly, Runway, ElevenLabs, CapCut, Canva
+                        </p>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">€400K</span>
+                            <span class="stat-label">Monthly Savings</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">9</span>
+                            <span class="stat-label">Industries</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Events Audience</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual" id="heroVisual">
+                    <!-- 3D Animation will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategy Canvas -->
+    <section class="strategy-section" id="strategy">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Strategy Canvas</h2>
+                <p class="section-subtitle">
+                    Comparing my cross-functional skillset against a typical software engineer profile
+                </p>
+            </div>
+
+            <div class="strategy-grid">
+                <div class="radar-container">
+                    <div class="comparison-legend">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #20B2AA;"></div>
+                            <span>Emilija (Cross-functional Leader)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #FF6384;"></div>
+                            <span>Typical Software Engineer</span>
+                        </div>
+                    </div>
+                    <div class="radar-wrapper">
+                        <canvas id="radarChart" width="700" height="700"></canvas>
+                    </div>
+                </div>
+
+                <div class="strategy-insights" style="margin-top: 60px;">
+                    <div class="insight-card">
+                        <h3 class="insight-title">Product Strategy Excellence</h3>
+                        <p class="insight-description">
+                            While typical engineers implement features, I drive product strategy from market research through execution, 
+                            combining technical feasibility analysis with user experience design and business impact measurement.
+                        </p>
+                    </div>
+                    <div class="insight-card">
+                        <h3 class="insight-title">Marketing Technology Integration</h3>
+                        <p class="insight-description">
+                            Beyond writing code, I architect marketing-technology solutions that drive measurable growth through 
+                            technical SEO, content automation, data analytics, and conversion optimization across the entire customer journey.
+                        </p>
+                    </div>
+                    <div class="insight-card">
+                        <h3 class="insight-title">Executive Leadership Capability</h3>
+                        <p class="insight-description">
+                            I operate at the intersection of engineering, product, marketing, and business strategy, 
+                            translating complex technical concepts for C-level stakeholders while driving organizational alignment around data-driven decisions.
+                        </p>
+                    </div>
+                    <div class="insight-card">
+                        <h3 class="insight-title">Cross-Industry Strategic Planning</h3>
+                        <p class="insight-description">
+                            Through experience across 9 industries, I bring strategic planning capabilities that bridge technical implementation 
+                            with market dynamics, enabling companies to scale innovative solutions across diverse business contexts.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" style="color: var(--black);">Flagship Projects</h2>
+                <p class="section-subtitle" style="color: var(--gray-600);">
+                    Open-source innovations at the intersection of AI, semantic web, and enterprise SEO
+                </p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3 class="project-title">SEOntology</h3>
+                        <p class="project-tagline">Universal Semantic Framework for SEO</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            The first comprehensive ontology for SEO, serving as a semantic operating system for modern content strategy. 
+                            Enables AI agents, apps, and researchers to reason about, audit, and optimize web content through standardized vocabulary 
+                            and linked data principles.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">OWL/RDF</span>
+                            <span class="tech-tag">Semantic Web</span>
+                            <span class="tech-tag">Knowledge Graphs</span>
+                            <span class="tech-tag">AI Reasoning</span>
+                            <span class="tech-tag">Schema.org Extension</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/seontology/seontology" class="project-link" target="_blank">
+                                View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-spider"></i>
+                        </div>
+                        <h3 class="project-title">WebKnoGraph</h3>
+                        <p class="project-tagline">AI-Powered Internal Linking Optimization</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            Revolutionary open-source framework that combines vector embeddings, graph algorithms, and GNN-based link prediction 
+                            to optimize internal linking at scale. The first transparent, AI-driven solution for enterprise SEO automation 
+                            with academic-grade reproducibility.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Graph Neural Networks</span>
+                            <span class="tech-tag">Vector Embeddings</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">GraphSAGE</span>
+                            <span class="tech-tag">PageRank</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/martech-engineer/WebKnoGraph" class="project-link" target="_blank">
+                                View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="experience-section" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Professional Journey</h2>
+                <p class="section-subtitle" style="color: var(--gray-600);">
+                    Building innovative solutions across enterprise AI, product strategy, and marketing technology
+                </p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-role">GenAI Expert & Project Lead</h3>
+                        <h4 class="timeline-company">MediaMarktSaturn Retail GmbH</h4>
+                        <p class="timeline-description">
+                            Led enterprise AI strategy implementation, conducting workshops for cross-functional teams and bringing 
+                            2 GenAI use cases from ideation to production. Established cross-functional leadership across 
+                            multidisciplinary teams, enhancing AI literacy across technical marketing, legal, and HR departments.
+                        </p>
+                    </div>
+                    <div class="timeline-date">2024-2025</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-role">Product SEO Architect</h3>
+                        <h4 class="timeline-company">MediaMarktSaturn Technology</h4>
+                        <p class="timeline-description">
+                            Architected PWA optimization solutions reducing server requests by 40+ million, saving €400K monthly. 
+                            Led GDPR-compliant web app development for server log analytics. Represented company as speaker 
+                            at SMX Munich, Germany's largest digital marketing conference.
+                        </p>
+                    </div>
+                    <div class="timeline-date">2023-2024</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-role">Senior VIP Growth Engineer</h3>
+                        <h4 class="timeline-company">WordLift & Strategic Partners</h4>
+                        <p class="timeline-description">
+                            Led 30+ enterprise clients through growth engineering initiatives, developing ML-powered content frameworks 
+                            and computer vision models. Created technical content featured in top industry newsletters, 
+                            generating 40+ qualified leads through thought leadership.
+                        </p>
+                    </div>
+                    <div class="timeline-date">2019-Present</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-role">Python Engineer (Technical SEO)</h3>
+                        <h4 class="timeline-company">meinestadt.de (Axel Springer)</h4>
+                        <p class="timeline-description">
+                            Engineered internal linking automation using NLP and ML algorithms for semantic search optimization. 
+                            Developed HTML sitemap algorithms processing millions of entries, achieving 150%+ site visit uplift. 
+                            Performance led to accelerated probation completion.
+                        </p>
+                    </div>
+                    <div class="timeline-date">2020-Present</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community & Collaboration -->
+    <section class="community-section" id="community">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Who I Want to Work With</h2>
+                <p class="section-subtitle">
+                    Seeking collaboration with visionary teams and individuals who share my passion for innovation
+                </p>
+            </div>
+
+            <div class="collaboration-grid">
+                <!-- Row 1 -->
+                <div class="collaboration-card">
+                    <i class="fas fa-rocket collaboration-icon"></i>
+                    <h3 class="collaboration-title">Growth-Minded Leaders</h3>
+                    <p class="collaboration-description">
+                        Executives and senior professionals who combine ambitious growth targets with intellectual humility, 
+                        constantly seeking to learn, iterate, and challenge their own assumptions while driving measurable business outcomes.
+                    </p>
+                </div>
+
+                <div class="collaboration-card">
+                    <i class="fas fa-chart-line collaboration-icon"></i>
+                    <h3 class="collaboration-title">Data-Driven Decision Makers</h3>
+                    <p class="collaboration-description">
+                        Teams that balance speed of execution with analytical rigor, using data to validate hypotheses 
+                        while maintaining bias toward action when market opportunities demand rapid response.
+                    </p>
+                </div>
+
+                <div class="collaboration-card">
+                    <i class="fas fa-chess collaboration-icon"></i>
+                    <h3 class="collaboration-title">Strategic Thinkers</h3>
+                    <p class="collaboration-description">
+                        Product managers, CTOs, and business leaders who understand that sustainable competitive advantages 
+                        emerge from the intersection of technology innovation, market positioning, and operational excellence.
+                    </p>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="collaboration-card">
+                    <i class="fas fa-award collaboration-icon"></i>
+                    <h3 class="collaboration-title">Self-Critical High Performers</h3>
+                    <p class="collaboration-description">
+                        Professionals who maintain high standards while embracing constructive feedback, continuously improving 
+                        their craft through reflection, peer learning, and commitment to delivering exceptional results.
+                    </p>
+                </div>
+
+                <div class="collaboration-card">
+                    <i class="fas fa-brain collaboration-icon"></i>
+                    <h3 class="collaboration-title">AI-Forward Innovators</h3>
+                    <p class="collaboration-description">
+                        Technologists and entrepreneurs who recognize AI as a transformative force, actively experimenting with 
+                        emerging technologies while maintaining ethical considerations and focusing on human-centered outcomes.
+                    </p>
+                </div>
+
+                <div class="collaboration-card">
+                    <i class="fas fa-handshake collaboration-icon"></i>
+                    <h3 class="collaboration-title">Cross-Functional Collaborators</h3>
+                    <p class="collaboration-description">
+                        Team players who thrive in matrix organizations, excel at breaking down silos between departments, 
+                        and understand that the best solutions emerge from diverse perspectives and interdisciplinary approaches.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Work Setup Strengths -->
+            <div class="section-header" style="margin-top: 80px;">
+                <h2 class="section-title">Cross-Context Expertise</h2>
+                <p class="section-subtitle">
+                    Proven ability to drive results across diverse organizational structures and industry verticals
+                </p>
+            </div>
+
+            <div class="work-context-grid">
+                <div class="context-card">
+                    <h3 class="context-title">Startup Environments</h3>
+                    <p class="context-description">
+                        Thrive in resource-constrained, high-velocity environments where cross-functional expertise accelerates 
+                        product-market fit discovery. Excel at wearing multiple hats while establishing scalable technical foundations.
+                    </p>
+                    <div class="context-highlights">
+                        <span class="highlight-tag">0-1 Product Development</span>
+                        <span class="highlight-tag">Technical Co-founder Advisory</span>
+                        <span class="highlight-tag">Rapid Prototyping</span>
+                    </div>
+                </div>
+
+                <div class="context-card">
+                    <h3 class="context-title">Scale-up Growth Phase</h3>
+                    <p class="context-description">
+                        Navigate the complexity of scaling technical and organizational systems while maintaining product quality 
+                        and market responsiveness. Bridge startup agility with enterprise-grade reliability.
+                    </p>
+                    <div class="context-highlights">
+                        <span class="highlight-tag">Growth Engineering</span>
+                        <span class="highlight-tag">Team Scaling</span>
+                        <span class="highlight-tag">Process Optimization</span>
+                    </div>
+                </div>
+
+                <div class="context-card">
+                    <h3 class="context-title">Enterprise Corporations</h3>
+                    <p class="context-description">
+                        Drive innovation within complex organizational structures, managing stakeholder alignment across 
+                        multiple business units while implementing strategic technical initiatives at scale.
+                    </p>
+                    <div class="context-highlights">
+                        <span class="highlight-tag">Digital Transformation</span>
+                        <span class="highlight-tag">Stakeholder Management</span>
+                        <span class="highlight-tag">Compliance Integration</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Industry Expertise -->
+            <div class="industry-expertise">
+                <h3 class="industry-title">B2B SaaS & DTC Brand Specialization</h3>
+                <div class="industry-grid">
+                    <div class="industry-category">
+                        <h4 class="category-title">B2B SaaS Platforms</h4>
+                        <div class="industry-tags">
+                            <span class="industry-tag">Marketing Technology</span>
+                            <span class="industry-tag">Content Management Systems</span>
+                            <span class="industry-tag">Analytics & Business Intelligence</span>
+                            <span class="industry-tag">Knowledge Management</span>
+                        </div>
+                    </div>
+                    <div class="industry-category">
+                        <h4 class="category-title">Direct-to-Consumer Brands</h4>
+                        <div class="industry-tags">
+                            <span class="industry-tag">E-commerce & Retail</span>
+                            <span class="industry-tag">Consumer Electronics</span>
+                            <span class="industry-tag">Digital Media & Entertainment</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="industry-additional">
+                    <p><strong>Additional Industries:</strong> Financial Services, Healthcare Technology, Legal Technology, 
+                    Real Estate & Property Management, Education Technology</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's Build Something Amazing</h2>
+                <p class="section-subtitle" style="color: var(--gray-600);">
+                    Ready to bridge AI innovation with business impact
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <a href="mailto:emmagjorgjevska@gmail.com" class="contact-link">
+                        emmagjorgjevska@gmail.com
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin contact-icon"></i>
+                    <a href="https://linkedin.com/in/emilijagjorgjevska" class="contact-link" target="_blank">
+                        LinkedIn Profile
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github contact-icon"></i>
+                    <a href="https://github.com/martech-engineer" class="contact-link" target="_blank">
+                        GitHub Portfolio
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone contact-icon"></i>
+                    <a href="tel:+491631580855" class="contact-link">
+                        +49 1631 580 855
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Background Animation with Three.js
+        function initBackgroundAnimation() {
+            const container = document.getElementById('backgroundAnimation');
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ alpha: true });
+            
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            container.appendChild(renderer.domElement);
+
+            // Create geometric shapes
+            const geometry = new THREE.IcosahedronGeometry(1, 1);
+            const material = new THREE.MeshBasicMaterial({ 
+                color: 0x000000, 
+                wireframe: true,
+                transparent: true,
+                opacity: 0.1
+            });
+
+            const shapes = [];
+            for (let i = 0; i < 20; i++) {
+                const mesh = new THREE.Mesh(geometry, material);
+                mesh.position.set(
+                    (Math.random() - 0.5) * 20,
+                    (Math.random() - 0.5) * 20,
+                    (Math.random() - 0.5) * 20
+                );
+                mesh.rotation.set(
+                    Math.random() * Math.PI,
+                    Math.random() * Math.PI,
+                    Math.random() * Math.PI
+                );
+                scene.add(mesh);
+                shapes.push(mesh);
+            }
+
+            camera.position.z = 10;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                shapes.forEach(shape => {
+                    shape.rotation.x += 0.005;
+                    shape.rotation.y += 0.005;
+                    shape.position.y += Math.sin(Date.now() * 0.001 + shape.position.x) * 0.01;
+                });
+
+                renderer.render(scene, camera);
+            }
+
+            animate();
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+
+        // Hero 3D Visual
+        function initHeroVisual() {
+            const container = document.getElementById('heroVisual');
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            
+            renderer.setSize(600, 600);
+            container.appendChild(renderer.domElement);
+
+            // Create a complex geometric structure
+            const group = new THREE.Group();
+            
+            // Main structure
+            const mainGeometry = new THREE.TorusGeometry(2, 0.5, 16, 100);
+            const mainMaterial = new THREE.MeshBasicMaterial({ 
+                color: 0x000000, 
+                wireframe: true,
+                transparent: true,
+                opacity: 0.8
+            });
+            const mainMesh = new THREE.Mesh(mainGeometry, mainMaterial);
+            group.add(mainMesh);
+
+            // Orbiting elements
+            for (let i = 0; i < 8; i++) {
+                const geometry = new THREE.OctahedronGeometry(0.3);
+                const material = new THREE.MeshBasicMaterial({ 
+                    color: 0x000000,
+                    transparent: true,
+                    opacity: 0.6
+                });
+                const mesh = new THREE.Mesh(geometry, material);
+                const angle = (i / 8) * Math.PI * 2;
+                mesh.position.set(Math.cos(angle) * 4, Math.sin(angle) * 4, 0);
+                group.add(mesh);
+            }
+
+            scene.add(group);
+            camera.position.z = 8;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                group.rotation.y += 0.01;
+                group.rotation.x += 0.005;
+                
+                // Orbit the camera slightly
+                const time = Date.now() * 0.0005;
+                camera.position.x = Math.sin(time) * 2;
+                camera.position.y = Math.cos(time) * 1;
+                camera.lookAt(scene.position);
+
+                renderer.render(scene, camera);
+            }
+
+            animate();
+        }
+
+        // Radar Chart
+        function initRadarChart() {
+            const ctx = document.getElementById('radarChart').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: [
+                        'Software Engineering',
+                        'Product Strategy',
+                        'Marketing Technology', 
+                        'Executive Leadership',
+                        'Strategic Planning',
+                        'Research Development',
+                        'Artificial Intelligence',
+                        'Cross Industry Expertise'
+                    ],
+                    datasets: [{
+                        label: 'Emilija (Cross-functional Leader)',
+                        data: [95, 92, 95, 90, 93, 88, 94, 90],
+                        backgroundColor: 'rgba(32, 178, 170, 0.15)',
+                        borderColor: '#20B2AA',
+                        borderWidth: 4,
+                        pointBackgroundColor: '#20B2AA',
+                        pointBorderColor: '#ffffff',
+                        pointBorderWidth: 3,
+                        pointRadius: 8
+                    }, {
+                        label: 'Typical Software Engineer',
+                        data: [88, 35, 20, 25, 30, 45, 70, 40],
+                        backgroundColor: 'rgba(255, 99, 132, 0.15)',
+                        borderColor: '#FF6384',
+                        borderWidth: 3,
+                        pointBackgroundColor: '#FF6384',
+                        pointBorderColor: '#ffffff',
+                        pointBorderWidth: 2,
+                        pointRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100,
+                            min: 0,
+                            ticks: {
+                                stepSize: 25,
+                                color: '#ffffff',
+                                font: {
+                                    size: 16,
+                                    weight: '700'
+                                },
+                                backdropColor: 'rgba(0, 0, 0, 0.7)',
+                                backdropPadding: 6
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.5)',
+                                lineWidth: 2
+                            },
+                            angleLines: {
+                                color: 'rgba(255, 255, 255, 0.5)',
+                                lineWidth: 2
+                            },
+                            pointLabels: {
+                                color: '#ffffff',
+                                font: {
+                                    size: 16,
+                                    weight: '800'
+                                },
+                                padding: 35
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Smooth scrolling and active nav
+        function initNavigation() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Update active nav
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                });
+            });
+
+            // Update active nav on scroll
+            window.addEventListener('scroll', () => {
+                const sections = document.querySelectorAll('section');
+                const scrollPos = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${sectionId}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            });
+        }
+
+        // Intersection Observer for animations
+        function initAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (entry.target.classList.contains('timeline-item')) {
+                            const isEven = Array.from(entry.target.parentNode.children).indexOf(entry.target) % 2 === 0;
+                            entry.target.classList.add(isEven ? 'animate-slide-left' : 'animate-slide-right');
+                        } else {
+                            entry.target.classList.add('animate-fade-in');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.project-card, .insight-card, .collaboration-card, .timeline-item').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            initBackgroundAnimation();
+            initHeroVisual();
+            initRadarChart();
+            initNavigation();
+            initAnimations();
+        });
+    </script>
+</body>
+</html>
