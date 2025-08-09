@@ -881,7 +881,216 @@
 
         /* Ensure hero title doesn't wrap awkwardly on large screens */
         .hero-title { white-space: normal; word-break: keep-all; }
-    </style>
+    
+/* Designer quote banner */
+.quote-banner {
+  position: relative;
+  background: var(--white);
+  border: 2px solid var(--black);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.12), 0 6px 18px rgba(0,0,0,0.10);
+  padding: clamp(24px, 4vw, 56px);
+  margin: 48px 0;
+  overflow: hidden;
+}
+
+/* subtle material grid texture */
+.quote-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(0,0,0,0.04) 1px, transparent 1px) 0 0 / 24px 24px,
+    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px) 0 0 / 24px 24px;
+  pointer-events: none;
+}
+
+.quote-mark {
+  position: absolute;
+  top: -16px;
+  left: -6px;
+  font-size: clamp(72px, 10vw, 160px);
+  line-height: 1;
+  font-weight: 900;
+  color: rgba(0,0,0,0.06);
+  user-select: none;
+}
+
+.quote-text {
+  position: relative;
+  font-size: clamp(1.6rem, 3.4vw, 3rem);
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  text-align: center;
+  padding: clamp(8px, 1vw, 12px) 0;
+}
+
+.quote-accent {
+  position: relative;
+  display: inline-block;
+  padding: 0 clamp(10px, 1.5vw, 14px);
+  box-shadow: inset 0 -10px 0 rgba(0,0,0,0.08);
+}
+
+.quote-meta {
+  position: relative;
+  margin-top: 18px;
+  text-align: center;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-700);
+}
+
+/* keep corners square sitewide */
+.quote-banner,
+.quote-accent { border-radius: 0 !important; }
+
+
+
+/* Literary Influences Section */
+.literary-section {
+  padding: 120px 0;
+  background: var(--gray-100);
+  color: var(--black);
+}
+
+.lit-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.lit-title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.lit-subtitle {
+  font-size: 1.1rem;
+  color: var(--gray-700);
+  max-width: 780px;
+  margin: 0 auto 16px auto;
+  line-height: 1.7;
+}
+
+.lit-intro {
+  font-size: 1rem;
+  color: var(--gray-700);
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.shelves-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  margin-top: 64px;
+}
+
+.shelf-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.07);
+}
+
+.shelf-card::before {
+  content: "";
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, var(--black) 0%, var(--gray-600) 100%);
+}
+
+.shelf-body {
+  padding: 28px 28px 8px 28px;
+}
+
+.shelf-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.book-list {
+  display: grid;
+  gap: 16px;
+}
+
+.book-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  padding: 14px 0;
+  border-top: 1px solid var(--gray-200);
+}
+
+.book-item:first-child { border-top: 0; }
+
+.book-title {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.book-author {
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  font-weight: 600;
+  margin-left: 16px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .literary-section { padding: 80px 0; }
+  .book-item { grid-template-columns: 1fr; gap: 6px; }
+  .book-author { margin-left: 0; }
+}
+
+
+
+/* Premium metallic gradient for hero title */
+.hero-title.gradient {
+  background: linear-gradient(120deg, #1a1a1a 0%, #3a3a3a 20%, #d1d1d1 40%, #ffffff 50%, #d1d1d1 60%, #3a3a3a 80%, #1a1a1a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: metallicShine 4s linear infinite;
+}
+
+@keyframes metallicShine {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+
+
+/* --- Ensure premium turquoise gradient shows and remains readable --- */
+.hero .hero-content .hero-title.gradient {
+  background: linear-gradient(120deg, #20B2AA 0%, #00CED1 25%, #40E0D0 50%, #00CED1 75%, #20B2AA 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  background-size: 200% auto !important;
+  animation: turquoiseShine 6s linear infinite !important;
+  text-shadow: none !important;
+}
+
+@keyframes turquoiseShine {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+  100% { background-position: 200% center; }
+}
+  100% { background-position: 200% center; }
+}
+
+
+</style>
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TMN0THB2K2"></script>
@@ -913,15 +1122,25 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content">
-                    <h1 class="hero-title">Emilia Gjorgjevska</h1>
+                    <h1 class="hero-title gradient" style="margin-top:2cm;">Emilia Gjorgjevska</h1>
                     <p class="hero-subtitle">Progressive Software Engineer & GenAI Strategist</p>
                     <p class="hero-description">
                         Artificially intelligent, naturally sentient. Cross-functional engineering leader bridging AI innovation, 
                         product strategy, and marketing excellence. Open-source contributor specializing in semantic web technologies, 
                         knowledge graphs, and enterprise AI transformation.
                     </p>
+<p style="font-size:0.9rem; color: var(--gray-600); margin-top: 12px;"><em>Best experienced on desktop for full visuals and animations.</em></p>
                     
-                    <div style="margin-bottom: 48px; padding: 20px; background: var(--gray-100); border-left: 4px solid var(--black);">
+                    
+<div class="quote-banner">
+  <div class="quote-mark">“</div>
+  <div class="quote-text">
+    <span class="quote-accent">Fortune favors the bold</span>
+  </div>
+  <div class="quote-meta">Statement of intent</div>
+</div>
+
+<div style="margin-bottom: 48px; padding: 20px; background: var(--gray-100); border-left: 4px solid var(--black);">
                         <p style="margin: 0; font-size: 1rem; color: var(--black); font-weight: 500; line-height: 1.6;">
                             <strong style="color: var(--black);">GenAI-enablement stack:</strong> Loveable, Claude Max, Gemini Pro, ChatGPT Plus, Adobe Firefly, Runway, ElevenLabs, CapCut, Canva
                         </p>
@@ -1295,6 +1514,52 @@
             </div>
         </div>
     </section>
+
+
+    <!-- Literary Influences -->
+    <section class="literary-section" id="literary">
+        <div class="container">
+            <div class="lit-header">
+                <h2 class="lit-title">Literary Influences</h2>
+                <p class="lit-subtitle" style="color: #ff4f9a;">Reading is where I find energy, perspective, and new ideas</p>
+                <p class="lit-intro">
+                    My shelves bring together business strategy, psychology, finance, discipline, and feminine energy —
+                    each book chosen because it speaks to both the mind and the heart. From <strong>Pricing Creativity</strong> by Blair Enns
+                    to <strong>Rich Dad, Poor Dad</strong> by Robert Kiyosaki, and the wisdom of Eric Schmidt’s
+                    <strong>How Google Works</strong> and <strong>Trillion Dollar Coach</strong>, these works have guided how I think, create, and connect.
+                    This collection reflects the values that inspire me every day: curiosity, courage, and compassion woven into every chapter.
+                </p>
+            </div>
+
+            <div class="shelves-grid">
+                <div class="shelf-card">
+                    <div class="shelf-body">
+                        <h3 class="shelf-title">Business Strategy</h3>
+                        <div class="book-list">
+                            <div class="book-item">
+                                <div class="book-title">Pricing Creativity</div>
+                                <div class="book-author">Blair Enns</div>
+                            </div>
+                            <div class="book-item">
+                                <div class="book-title">How Google Works</div>
+                                <div class="book-author">Eric Schmidt</div>
+                            </div>
+                            <div class="book-item">
+                                <div class="book-title">Trillion Dollar Coach</div>
+                                <div class="book-author">Eric Schmidt</div>
+                            </div>
+                            <div class="book-item">
+                                <div class="book-title">Rich Dad, Poor Dad</div>
+                                <div class="book-author">Robert Kiyosaki</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Future shelves: Psychology, Finance, Discipline, Feminine Energy -->
+            </div>
+        </div>
+    </section>
+
 
     <!-- Contact -->
     <section class="contact-section">
