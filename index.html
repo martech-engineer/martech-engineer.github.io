@@ -1645,6 +1645,138 @@
         html {
             scroll-padding-top: 2rem;
         }
+		.freelance-hire-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .freelance-hire-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .freelance-pulse-indicator {
+            width: 12px;
+            height: 12px;
+            background: #14b8a6;
+            border-radius: 50% !important;
+            position: relative;
+            animation: freelance-pulse-animation 2s infinite;
+        }
+
+        .freelance-pulse-indicator::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50% !important;
+            background: #14b8a6;
+            opacity: 0.6;
+            animation: freelance-pulse-ring-animation 2s infinite;
+        }
+
+        @keyframes freelance-pulse-animation {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes freelance-pulse-ring-animation {
+            0% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        .freelance-hire-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1f2937;
+            margin: 0;
+			border-radius: 50% !important;
+        }
+
+        .freelance-hire-text-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+		
+		
+		.emi-main-content {
+			/* Optional: Basic styling for your content */
+			padding: 20px;
+			text-align: center;
+		}
+
+		/* By default, show the main content */
+		.emi-main-content {
+			display: block;
+		}
+
+		/* By default, hide the mobile message */
+		.desktop-message {
+			display: none;
+		}
+
+		/* This media query applies only to screens with a max-width of 768px (e.g., phones and small tablets) */
+		@media (max-width: 768px) {
+			/* Hide the main content on mobile devices */
+			.emi-main-content {
+				display: none;
+			}
+
+			/* Show the desktop message on mobile devices */
+			.desktop-message {
+				display: block;
+			}
+		}
+		.desktop-message {
+            width: 300px;
+            padding: 20px;
+            background-color: #40e0d0; /* Turquoise color */
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 1, 0.2);
+            /* Initially hide the message */
+            display: none;
+        }
+
+        .desktop-message p {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0;
+
+            /* Create the black and white gradient text effect */
+            background: linear-gradient(to right, black);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text; /* Standard property */
+        }
+
+        /* Media query to show the message only on screens smaller than 768px */
+        @media (max-width: 768px) {
+            .desktop-message {
+                display: block;
+            }
+        }
     </style>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TMN0THB2K2"></script>
@@ -1658,673 +1790,682 @@
 </head>
 
 <body>
+	<div class="desktop-message">
+        <p>For the best experience, please visit our website on a desktop computer.</p>
+    </div>
     <div class="background-animation" id="backgroundAnimation"></div>
+	<div class="emi-main-content">
+		<nav class="nav">
+			<div class="nav-links">
+				<a href="#home" class="nav-link active">Home</a>
+				<a href="#hall-of-fame" class="nav-link">Hall of Fame</a>
+				<a href="#extraordinaryJourney" class="nav-link">Journey</a>
+				<a href="#strategy" class="nav-link">Strategy</a>
+				<a href="#projects" class="nav-link">Projects</a>
+				<a href="#experience" class="nav-link">Experience</a>
+				<a href="#community" class="nav-link">Community</a>
+			</div>
+		</nav>
 
-    <nav class="nav">
-        <div class="nav-links">
-            <a href="#home" class="nav-link active">Home</a>
-            <a href="#hall-of-fame" class="nav-link">Hall of Fame</a>
-            <a href="#extraordinaryJourney" class="nav-link">Journey</a>
-            <a href="#strategy" class="nav-link">Strategy</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#experience" class="nav-link">Experience</a>
-            <a href="#community" class="nav-link">Community</a>
-        </div>
-    </nav>
-
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <h1 class="hero-title gradient" style="margin-top:2cm;">Emilia<br>Gjorgjevska</h1>
-                    <p class="hero-subtitle">Progressive Software Engineer & GenAI Strategist</p>
-                    <p style="font-size:0.9rem; color: var(--gray-600); margin-top: 12px;"><em>Best experienced on desktop for full visuals and animations.</em></p>
-                    <br>
-                    <p class="hero-description">
-                        Artificially intelligent, naturally sentient. Cross-functional engineering leader based in the beautiful city of Munich in Germany, bridging AI innovation, product strategy, and marketing excellence. Open-source contributor specializing in semantic web technologies, knowledge graphs, and enterprise AI
-                        transformation.<br>
-                        I pride myself that my friends and partners describe me as loyal, dedicated, humorous, energetic, creative, on-point and joyful.
-                    </p>
-
-
-                    <div class="quote-banner">
-                        <div class="quote-mark">“</div>
-                        <div class="quote-text">
-                            <span class="quote-accent">Fortune favors<br>the bold</span>
-                        </div>
-                        <div class="quote-meta">Statement of intent</div>
-                    </div>
-
-                    <div style="margin-bottom: 48px; padding: 20px; background: var(--gray-100); border-left: 4px solid var(--black);">
-                        <p style="margin: 0; font-size: 1rem; color: var(--black); font-weight: 500; line-height: 1.6;">
-                            <strong style="color: var(--black);">GenAI-enablement stack:</strong> Lovable, Claude Max, Gemini Pro, ChatGPT Plus, Adobe Firefly, Runway, ElevenLabs, CapCut, Canva
-                        </p>
-                    </div>
-
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">€400K</span>
-                            <span class="stat-label">Monthly Savings</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">9</span>
-                            <span class="stat-label">Industries</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">100+</span>
-                            <span class="stat-label">Events Audience</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hero-visual" id="heroVisual">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="hall-of-fame" class="hall-of-fame-section">
-        <div class="achievements-container">
-            <header class="main-header" id="main-header">
-                <h1 class="primary-title" id="primary-title">Multi-Domain Hall of Fame</h1>
-                <p class="primary-subtitle" id="primary-subtitle"><span class="metallic-text"><strong>Competing and winning in:</strong><br>music, startups, business, and engineering</span></p>
-            </header>
-
-            <main class="main-content" id="main-content">
-                <div class="categories-grid" id="categories-grid">
-                    <section class="achievement-category" id="ai-technology-2025-category">
-                        <header class="category-title-section" id="ai-technology-category-header">
-                            <div class="category-icon-wrapper" id="ai-technology-icon">🤖</div>
-                            <div class="category-details" id="ai-technology-details">
-                                <h3>2025 — AI & Technology Excellence</h3>
-                                <p>Industry recognition for artificial intelligence innovation in retail</p>
-                            </div>
-                        </header>
-
-                        <div class="achievements-list" id="ai-technology-achievements-list">
-                            <article class="individual-achievement" id="reta-awards-achievement">
-                                <div class="achievement-title-row" id="reta-awards-title-row">
-                                    <h4 class="achievement-main-title" id="reta-awards-title">RetaAwards 2025 — Best Artificial Intelligence</h4>
-                                    <span class="metallic-rank-badge" id="reta-awards-badge">1st Place</span>
-                                </div>
-                                <p class="achievement-description-text" id="reta-awards-description">Awarded by EHI Retail Institute for MediaMarktSaturn's AI innovation. Led copywriting for the award application that secured victory in Europe's premier retail technology competition.</p>
-                                <p class="achievement-context-info" id="reta-awards-context">February 2025 • European retail technology awards recognizing AI excellence</p>
-                            </article>
-                        </div>
-                    </section>
-
-                    <section class="achievement-category" id="corporate-innovation-2022-category">
-                        <header class="category-title-section" id="corporate-innovation-category-header">
-                            <div class="category-icon-wrapper" id="corporate-innovation-icon">💡</div>
-                            <div class="category-details" id="corporate-innovation-details">
-                                <h3>2022 — Corporate Innovation Leadership</h3>
-                                <p>Team leadership and innovative solution development at enterprise scale</p>
-                            </div>
-                        </header>
-
-                        <div class="achievements-list" id="corporate-innovation-achievements-list">
-                            <article class="individual-achievement" id="innovation-days-achievement">
-                                <div class="achievement-title-row" id="innovation-days-title-row">
-                                    <h4 class="achievement-main-title" id="innovation-days-title">Innovation Days Challenge @ MediaMarktSaturn</h4>
-                                    <span class="metallic-rank-badge" id="innovation-days-badge">1st Place</span>
-                                </div>
-                                <p class="achievement-description-text" id="innovation-days-description">Won first place with team for most innovative idea among 8 teams and around 100 participants. Led cross-functional collaboration and strategic solution design.</p>
-                                <p class="achievement-context-info" id="innovation-days-context">December 2022 • MediaMarktSaturn Deutschland internal innovation competition</p>
-                            </article>
-                        </div>
-                    </section>
-
-                    <section class="achievement-category" id="academic-entrepreneurial-2016-category">
-                        <header class="category-title-section" id="academic-entrepreneurial-category-header">
-                            <div class="category-icon-wrapper" id="academic-entrepreneurial-icon">🎓</div>
-                            <div class="category-details" id="academic-entrepreneurial-details">
-                                <h3>2016 — Academic & Entrepreneurial Excellence</h3>
-                                <p>Research innovation and international startup recognition</p>
-                            </div>
-                        </header>
-
-                        <div class="achievements-list" id="academic-entrepreneurial-achievements-list">
-                            <article class="individual-achievement" id="western-balkans-achievement">
-                                <div class="achievement-title-row" id="western-balkans-title-row">
-                                    <h4 class="achievement-main-title" id="western-balkans-title">Western Balkans Startups Competition</h4>
-                                    <span class="metallic-rank-badge" id="western-balkans-badge">Finalist</span>
-                                </div>
-                                <p class="achievement-description-text" id="western-balkans-description">Outperformed competitors from 5 countries as the youngest contestant without previous experience. Demonstrated exceptional entrepreneurial vision and innovation potential.</p>
-                                <p class="achievement-context-info" id="western-balkans-context">February 2016 • International competition fostering regional entrepreneurship</p>
-                            </article>
-
-                            <article class="individual-achievement" id="fcse-conference-achievement">
-                                <div class="achievement-title-row" id="fcse-conference-title-row">
-                                    <h4 class="achievement-main-title" id="fcse-conference-title">FCSE Student Conference</h4>
-                                    <span class="metallic-rank-badge" id="fcse-conference-badge">1st Place</span>
-                                </div>
-                                <p class="achievement-description-text" id="fcse-conference-description">Beat over 60 teams with research on "Tweet sentiment analysis for sports brands" using Alchemy API. Demonstrated how companies can improve business intelligence through advanced analytics.</p>
-                                <p class="achievement-context-info" id="fcse-conference-context">January 2016 • Faculty of Computer Science and Engineering - Skopje</p>
-                            </article>
-                        </div>
-                    </section>
-
-                    <section class="achievement-category" id="startup-innovation-2015-category">
-                        <header class="category-title-section" id="startup-innovation-category-header">
-                            <div class="category-icon-wrapper" id="startup-innovation-icon">🚀</div>
-                            <div class="category-details" id="startup-innovation-details">
-                                <h3>2015 — International Startup Recognition</h3>
-                                <p>Regional startup competition achievement with international backing</p>
-                            </div>
-                        </header>
-
-                        <div class="achievements-list" id="startup-innovation-achievements-list">
-                            <article class="individual-achievement" id="pioneers-balkans-achievement">
-                                <div class="achievement-title-row" id="pioneers-balkans-title-row">
-                                    <h4 class="achievement-main-title" id="pioneers-balkans-title">Pioneers of the Balkans</h4>
-                                    <span class="metallic-rank-badge" id="pioneers-balkans-badge">Semifinalist</span>
-                                </div>
-                                <p class="achievement-description-text" id="pioneers-balkans-description">Competed with 583 applications from across the Balkans as the youngest candidate among chosen startups, without previous experience. Supported by Pioneers Festival, World Bank Group & European Commission.</p>
-                                <p class="achievement-context-info" id="pioneers-balkans-context">November 2015 • Premier regional startup acceleration program</p>
-                            </article>
-                        </div>
-                    </section>
-
-                    <section class="achievement-category" id="entertainment-performance-2010-category">
-                        <header class="category-title-section" id="entertainment-performance-category-header">
-                            <div class="category-icon-wrapper" id="entertainment-performance-icon">🎤</div>
-                            <div class="category-details" id="entertainment-performance-details">
-                                <h3>2010 — National Entertainment Excellence</h3>
-                                <p>Television competition success demonstrating performance mastery</p>
-                            </div>
-                        </header>
-
-                        <div class="achievements-list" id="entertainment-performance-achievements-list">
-                            <article class="individual-achievement" id="macedonian-idol-achievement">
-                                <div class="achievement-title-row" id="macedonian-idol-title-row">
-                                    <h4 class="achievement-main-title" id="macedonian-idol-title">Macedonian Idol Season 1</h4>
-                                    <span class="metallic-rank-badge" id="macedonian-idol-badge">Finalist</span>
-                                </div>
-                                <p class="achievement-description-text" id="macedonian-idol-description">Beat over 3,000 candidates from across the country as the youngest contestant without previous experience. Advanced to finals of Macedonia's first and only season of the Pop Idol franchise.</p>
-                                <p class="achievement-context-info" id="macedonian-idol-context">November 2010 • A1 TV national television competition</p>
-                            </article>
-                        </div>
-                    </section>
-
-                    <section class="achievement-category" id="early-excellence-2007-category">
-                        <header class="category-title-section" id="early-excellence-category-header">
-                            <div class="category-icon-wrapper" id="early-excellence-icon">🏅</div>
-                            <div class="category-details" id="early-excellence-details">
-                                <h3>2007 — Multi-Disciplinary Foundation</h3>
-                                <p>Early competitive excellence across diverse domains</p>
-                            </div>
-                        </header>
-
-                        <div class="achievements-list" id="early-excellence-achievements-list">
-                            <article class="individual-achievement" id="multiple-honors-achievement">
-                                <div class="achievement-title-row" id="multiple-honors-title-row">
-                                    <h4 class="achievement-main-title" id="multiple-honors-title">Multiple International & National Honors</h4>
-                                    <span class="metallic-rank-badge" id="multiple-honors-badge">Multiple Awards</span>
-                                </div>
-                                <p class="achievement-description-text" id="multiple-honors-description">Competed since primary school as choir member, poetry writer, basketball player, and math contestant. Won several local, national and international awards across sport, music, poetry, English language, research and mathematics.</p>
-                                <p class="achievement-context-info" id="multiple-honors-context">January 2007 • Local, regional, national and international competitions</p>
-                            </article>
-                        </div>
-                    </section>
-                </div>
-            </main>
-        </div>
-    </section>
-
-    <section id="extraordinaryJourney" aria-label="Extraordinary Journey">
-        <div class="container">
-            <div class="journeyHeader">
-                <h2 class="journeyTitle">Building an Extraordinary Life</h2>
-                <p class="journeyIntro">
-                    I am intentionally crafting a life I love, one day at a time. Gratitude is my foundation.<br>What began as a daily practice has become a deep well of appreciation that shifts how I see the world.
-                </p>
-            </div>
-
-            <div class="journeyGrid">
-                <article class="journeyNarrative">
-                    <p class="journeyParagraph">
-                        In quiet moments I capture evolving thoughts in my <span class="accent">Mental Shelf</span> document, my home for insights and a bridge between daily experiences and the deeper patterns I keep discovering. Writing helps me materialize
-                        clarity and honor the ideas that want to grow.
-                    </p>
-                    <br>
-                    <p class="journeyParagraph">
-                        People energize me. I am endlessly fascinated by the unique worlds each person carries within. These connections fuel my growth and remind me we belong to something larger than ourselves. I see systems everywhere: the elegant ways parts connect, how
-                        small changes ripple outward, how beautiful complexity emerges from simple interactions.
-                    </p>
-                    <br>
-                    <p class="journeyParagraph">
-                        My joy lives in breaking things down and building them back up from scratch. When something isn’t working, I question assumptions and reimagine what becomes possible when we start fresh. Each day I choose to show up with
-                        <span class="accent">gratitude</span>, capture thoughts, connect with people, think in systems, and rebuild what needs rebuilding. The extraordinary life is now, happening through intentional action and love.
-                    </p>
-                </article>
-
-                <aside class="journeyAside">
-                    <div class="journeyCard" id="gratitudePractice">
-                        <div class="cardTitle">Gratitude Practice</div>
-                        <div class="cardMeta">Daily foundation</div>
-                        <div class="cardText">
-                            Intentional thankfulness evolved into a transformative lens. It anchors my choices and brightens how I experience the world.
-                        </div>
-                    </div>
-
-                    <div class="journeyCard" id="mentalShelfNote">
-                        <div class="cardTitle">Mental Shelf</div>
-                        <div class="cardMeta">Thinking in public</div>
-                        <div class="cardText">
-                            A living archive where ideas compound. Notes become patterns, patterns become direction.
-                        </div>
-                    </div>
-
-                    <div class="journeyCard" id="systemsThinking">
-                        <div class="cardTitle">Systems Thinking</div>
-                        <div class="cardMeta">Patterns and connections</div>
-                        <div class="cardText">
-                            I map how parts influence each other, design small interventions, and let compounding effects do the rest.
-                        </div>
-                    </div>
-
-                </aside>
-            </div>
-        </div>
-    </section>
-
-    <section class="strategy-section" id="strategy">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Strategy Canvas</h2>
-                <p class="section-subtitle">
-                    Comparing my cross-functional skillset against a typical software engineer profile
-                </p>
-            </div>
-
-            <div class="strategy-grid">
-                <div class="radar-container">
-                    <div class="comparison-legend">
-                        <div class="legend-item">
-                            <div class="legend-color" style="background-color: #20B2AA;"></div>
-                            <span>Emilia (Cross-functional Leader)</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background-color: #FF6384;"></div>
-                            <span>Typical Software Engineer</span>
-                        </div>
-                    </div>
-                    <div class="radar-wrapper">
-                        <canvas id="radarChart" width="700" height="700"></canvas>
-                    </div>
-                </div>
-
-                <div class="strategy-insights" style="margin-top: 60px;">
-                    <div class="insight-card">
-                        <h3 class="insight-title">Product Strategy Excellence</h3>
-                        <p class="insight-description">
-                            While typical engineers implement features, I drive product strategy from market research through execution, combining technical feasibility analysis with user experience design and business impact measurement.
-                        </p>
-                    </div>
-                    <div class="insight-card">
-                        <h3 class="insight-title">Marketing Technology Integration</h3>
-                        <p class="insight-description">
-                            Beyond writing code, I architect marketing-technology solutions that drive measurable growth through technical SEO, content automation, data analytics, and conversion optimization across the entire customer journey.
-                        </p>
-                    </div>
-                    <div class="insight-card">
-                        <h3 class="insight-title">Executive Leadership Capability</h3>
-                        <p class="insight-description">
-                            I operate at the intersection of engineering, product, marketing, and business strategy, translating complex technical concepts for C-level stakeholders while driving organizational alignment around data-driven decisions.
-                        </p>
-                    </div>
-                    <div class="insight-card">
-                        <h3 class="insight-title">Cross-Industry Strategic Planning</h3>
-                        <p class="insight-description">
-                            Through experience across 9 industries, I bring strategic planning capabilities that bridge technical implementation with market dynamics, enabling companies to scale innovative solutions across diverse business contexts.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="projects-section" id="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" style="color: var(--black);">Flagship Projects</h2>
-                <p class="section-subtitle" style="color: var(--gray-600);">
-                    Open-source innovations at the intersection of AI, semantic web, and enterprise SEO
-                </p>
-            </div>
-
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-project-diagram"></i>
-                        </div>
-                        <h3 class="project-title">SEOntology</h3>
-                        <p class="project-tagline">Universal Semantic Framework for SEO</p>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            The first comprehensive ontology for SEO, serving as a semantic operating system for modern content strategy. Enables AI agents, apps, and researchers to reason about, audit, and optimize web content through standardized vocabulary and linked data principles.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">OWL/RDF</span>
-                            <span class="tech-tag">Semantic Web</span>
-                            <span class="tech-tag">Knowledge Graphs</span>
-                            <span class="tech-tag">AI Reasoning</span>
-                            <span class="tech-tag">Schema.org Extension</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/seontology/seontology" class="project-link" target="_blank">
-                                View Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-spider"></i>
-                        </div>
-                        <h3 class="project-title">WebKnoGraph</h3>
-                        <p class="project-tagline">AI-Powered Internal Linking Optimization</p>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            Revolutionary open-source framework that combines vector embeddings, graph algorithms, and GNN-based link prediction to optimize internal linking at scale. The first transparent, AI-driven solution for enterprise SEO automation with academic-grade reproducibility.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Graph Neural Networks</span>
-                            <span class="tech-tag">Vector Embeddings</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">GraphSAGE</span>
-                            <span class="tech-tag">PageRank</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/martech-engineer/WebKnoGraph" class="project-link" target="_blank">
-                                View Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="experience-section" id="experience">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">International Professional Journey</h2>
-                <p class="section-subtitle" style="color: var(--gray-600);">
-                    Building innovative solutions across enterprise AI, product strategy, and marketing technology
-                </p>
-            </div>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3 class="timeline-role">GenAI Expert & Project Lead</h3>
-                        <h4 class="timeline-company">MediaMarktSaturn Retail GmbH</h4>
-                        <p class="timeline-description">
-                            Led enterprise AI strategy implementation, conducting workshops for cross-functional teams and bringing 2 GenAI use cases from ideation to production. Established cross-functional leadership across multidisciplinary teams, enhancing AI literacy across
-                            technical marketing, legal, and HR departments.
-                        </p>
-                    </div>
-                    <div class="timeline-date">2024-2025</div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3 class="timeline-role">Product SEO Architect</h3>
-                        <h4 class="timeline-company">MediaMarktSaturn Technology</h4>
-                        <p class="timeline-description">
-                            Reduced server requests by 40+ million, saving €400K monthly internationally. Led GDPR-compliant web app development for server log analytics. Represented company as speaker at SMX Munich, Germany's largest digital marketing conference.
-                        </p>
-                    </div>
-                    <div class="timeline-date">2023-2024</div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3 class="timeline-role">Senior VIP Growth Engineer</h3>
-                        <h4 class="timeline-company">WordLift & Strategic Partners</h4>
-                        <p class="timeline-description">
-                            Led 30+ enterprise clients through growth engineering initiatives, developing ML-powered content frameworks and computer vision models. Created technical content featured in top industry newsletters, generating 40+ qualified leads through thought leadership.
-                        </p>
-                    </div>
-                    <div class="timeline-date">2019-Present</div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3 class="timeline-role">Python Engineer (Technical SEO)</h3>
-                        <h4 class="timeline-company">meinestadt.de (Axel Springer)</h4>
-                        <p class="timeline-description">
-                            Engineered internal linking automation using NLP and ML algorithms for semantic search optimization. Developed HTML sitemap algorithms processing millions of entries, achieving 150%+ site visit uplift. Performance led to accelerated probation completion.
-                        </p>
-                    </div>
-                    <div class="timeline-date">2020-2021</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="community-section" id="community">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Who I Want to Work With</h2>
-                <p class="section-subtitle">
-                    Seeking collaboration with visionary teams and individuals who share my passion for innovation
-                </p>
-            </div>
-
-            <div class="collaboration-grid">
-                <div class="collaboration-card">
-                    <i class="fas fa-rocket collaboration-icon"></i>
-                    <h3 class="collaboration-title">Growth-Minded Leaders</h3>
-                    <p class="collaboration-description">
-                        Executives and senior professionals who combine ambitious growth targets with intellectual humility, constantly seeking to learn, iterate, and challenge their own assumptions while driving measurable business outcomes.
-                    </p>
-                </div>
-
-                <div class="collaboration-card">
-                    <i class="fas fa-chart-line collaboration-icon"></i>
-                    <h3 class="collaboration-title">Data-Driven Decision Makers</h3>
-                    <p class="collaboration-description">
-                        Teams that balance speed of execution with analytical rigor, using data to validate hypotheses while maintaining bias toward action when market opportunities demand rapid response.
-                    </p>
-                </div>
-
-                <div class="collaboration-card">
-                    <i class="fas fa-chess collaboration-icon"></i>
-                    <h3 class="collaboration-title">Strategic Thinkers</h3>
-                    <p class="collaboration-description">
-                        Product managers, CTOs, and business leaders who understand that sustainable competitive advantages emerge from the intersection of technology innovation, market positioning, and operational excellence.
-                    </p>
-                </div>
-
-                <div class="collaboration-card">
-                    <i class="fas fa-award collaboration-icon"></i>
-                    <h3 class="collaboration-title">Self-Critical High Performers</h3>
-                    <p class="collaboration-description">
-                        Professionals who maintain high standards while embracing constructive feedback, continuously improving their craft through reflection, peer learning, and commitment to delivering exceptional results.
-                    </p>
-                </div>
-
-                <div class="collaboration-card">
-                    <i class="fas fa-brain collaboration-icon"></i>
-                    <h3 class="collaboration-title">AI-Forward Innovators</h3>
-                    <p class="collaboration-description">
-                        Technologists and entrepreneurs who recognize AI as a transformative force, actively experimenting with emerging technologies while maintaining ethical considerations and focusing on human-centered outcomes.
-                    </p>
-                </div>
-
-                <div class="collaboration-card">
-                    <i class="fas fa-handshake collaboration-icon"></i>
-                    <h3 class="collaboration-title">Cross-Functional Collaborators</h3>
-                    <p class="collaboration-description">
-                        Team players who thrive in matrix organizations, excel at breaking down silos between departments, and understand that the best solutions emerge from diverse perspectives and interdisciplinary approaches.
-                    </p>
-                </div>
-            </div>
-
-            <div class="section-header" style="margin-top: 80px;">
-                <h2 class="section-title">Cross-Context Expertise</h2>
-                <p class="section-subtitle">
-                    Proven ability to drive results across diverse organizational structures and industry verticals
-                </p>
-            </div>
-
-            <div class="work-context-grid">
-                <div class="context-card">
-                    <h3 class="context-title">Startup Environments</h3>
-                    <p class="context-description">
-                        Thrive in resource-constrained, high-velocity environments where cross-functional expertise accelerates product-market fit discovery. Excel at wearing multiple hats while establishing scalable technical foundations.
-                    </p>
-                    <div class="context-highlights">
-                        <span class="highlight-tag">0-1 Product Development</span>
-                        <span class="highlight-tag">Technical Co-founder Advisory</span>
-                        <span class="highlight-tag">Rapid Prototyping</span>
-                    </div>
-                </div>
-
-                <div class="context-card">
-                    <h3 class="context-title">Scale-up Growth Phase</h3>
-                    <p class="context-description">
-                        Navigate the complexity of scaling technical and organizational systems while maintaining product quality and market responsiveness. Bridge startup agility with enterprise-grade reliability.
-                    </p>
-                    <div class="context-highlights">
-                        <span class="highlight-tag">Growth Engineering</span>
-                        <span class="highlight-tag">Team Scaling</span>
-                        <span class="highlight-tag">Process Optimization</span>
-                    </div>
-                </div>
-
-                <div class="context-card">
-                    <h3 class="context-title">Enterprise Corporations</h3>
-                    <p class="context-description">
-                        Drive innovation within complex organizational structures, managing stakeholder alignment across multiple business units while implementing strategic technical initiatives at scale.
-                    </p>
-                    <div class="context-highlights">
-                        <span class="highlight-tag">Digital Transformation</span>
-                        <span class="highlight-tag">Stakeholder Management</span>
-                        <span class="highlight-tag">Compliance Integration</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="industry-expertise">
-                <h3 class="industry-title">B2B SaaS & DTC Brand Specialization</h3>
-                <div class="industry-grid">
-                    <div class="industry-category">
-                        <h4 class="category-title">B2B SaaS Platforms</h4>
-                        <div class="industry-tags">
-                            <span class="industry-tag">Marketing Technology</span>
-                            <span class="industry-tag">Content Management Systems</span>
-                            <span class="industry-tag">Analytics & Business Intelligence</span>
-                            <span class="industry-tag">Knowledge Management</span>
-                        </div>
-                    </div>
-                    <div class="industry-category">
-                        <h4 class="category-title">Direct-to-Consumer Brands</h4>
-                        <div class="industry-tags">
-                            <span class="industry-tag">E-commerce & Retail</span>
-                            <span class="industry-tag">Consumer Electronics</span>
-                            <span class="industry-tag">Digital Media & Entertainment</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="industry-additional">
-                    <p><strong>Additional Industries:</strong> Financial Services, Healthcare Technology, Legal Technology, Real Estate & Property Management, Education Technology</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="literary-section" id="literary">
-        <div class="container">
-            <div class="lit-header">
-                <h2 class="lit-title">Literary Influences</h2>
-                <p class="lit-subtitle" style="color: #ff4f9a;">Reading is where I find energy, perspective, and new ideas</p>
-                <p class="lit-intro">
-                    My shelves bring together business strategy, psychology, finance, discipline, and feminine energy — each book chosen because it speaks to both the mind and the heart. From <strong>Pricing Creativity</strong> by Blair Enns to <strong>Rich Dad, Poor Dad</strong>
-                    by Robert Kiyosaki, and the wisdom of Eric Schmidt’s
-                    <strong>How Google Works</strong> and <strong>Trillion Dollar Coach</strong>, these works have guided how I think, create, and connect. This collection reflects the values that inspire me every day: curiosity, courage, and compassion
-                    woven into every chapter.
-                </p>
-            </div>
-
-            <div class="shelves-grid">
-                <div class="shelf-card">
-                    <div class="shelf-body">
-                        <h3 class="shelf-title">Business Strategy</h3>
-                        <div class="book-list">
-                            <div class="book-item">
-                                <div class="book-title">Pricing Creativity</div>
-                                <div class="book-author">Blair Enns</div>
-                            </div>
-                            <div class="book-item">
-                                <div class="book-title">How Google Works</div>
-                                <div class="book-author">Eric Schmidt</div>
-                            </div>
-                            <div class="book-item">
-                                <div class="book-title">Trillion Dollar Coach</div>
-                                <div class="book-author">Eric Schmidt</div>
-                            </div>
-                            <div class="book-item">
-                                <div class="book-title">Rich Dad, Poor Dad</div>
-                                <div class="book-author">Robert Kiyosaki</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+		<section class="hero" id="home">
+			<div class="container">
+				<div class="hero-grid">
+					<div class="hero-content">
+						<h1 class="hero-title gradient" style="margin-top:2cm;">Emilia<br>Gjorgjevska</h1>
+						<p class="hero-subtitle">Progressive Software Engineer & GenAI Strategist</p>
+						<div class="freelance-hire-badge">
+							<div class="freelance-pulse-indicator"></div>
+							<div class="freelance-hire-text-wrapper">
+								<div class="freelance-hire-title">Available for hire</div>
+							</div>
+						</div>
+						<p style="font-size:0.9rem; color: var(--gray-600); margin-top: 12px;"><em>Best experienced on desktop for full visuals and animations.</em></p>
+						<br>
+						<p class="hero-description">
+							Artificially intelligent, naturally sentient. Cross-functional engineering leader based in the beautiful city of Munich in Germany, bridging AI innovation, product strategy, and marketing excellence. Open-source contributor specializing in semantic web technologies, knowledge graphs, and enterprise AI
+							transformation.<br>
+							I pride myself that my friends and partners describe me as loyal, dedicated, humorous, energetic, creative, on-point and joyful.
+						</p>
 
 
-    <section class="contact-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">"If you like it then you shoulda put a ring on it"</h2>
-                <p class="section-subtitle" style="color: var(--gray-600);">
-                    I'm ready to bridge AI innovation with business impact
-                </p>
-            </div>
+						<div class="quote-banner">
+							<div class="quote-mark">“</div>
+							<div class="quote-text">
+								<span class="quote-accent">Fortune favors<br>the bold</span>
+							</div>
+							<div class="quote-meta">Statement of intent</div>
+						</div>
 
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <i class="fas fa-envelope contact-icon"></i>
-                    <a href="mailto:emmagjorgjevska@gmail.com" class="contact-link">
-                        emmagjorgjevska@gmail.com
-                    </a>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-linkedin contact-icon"></i>
-                    <a href="https://linkedin.com/in/emilijagjorgjevska" class="contact-link" target="_blank">
-                        LinkedIn Profile
-                    </a>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-github contact-icon"></i>
-                    <a href="https://github.com/martech-engineer" class="contact-link" target="_blank">
-                        GitHub Portfolio
-                    </a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone contact-icon"></i>
-                    <a href="tel:+491631580855" class="contact-link">
-                        +49 1631 580 855
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+						<div style="margin-bottom: 48px; padding: 20px; background: var(--gray-100); border-left: 4px solid var(--black);">
+							<p style="margin: 0; font-size: 1rem; color: var(--black); font-weight: 500; line-height: 1.6;">
+								<strong style="color: var(--black);">GenAI-enablement stack:</strong> Lovable, Claude Max, Gemini Pro, ChatGPT Plus, Adobe Firefly, Runway, ElevenLabs, CapCut, Canva
+							</p>
+						</div>
 
-    <footer class="main-footer" id="main-footer">
-        <p>© 2025 Emilia Gjorgjevska. Multi-domain professional excellence.</p>
-    </footer>
+						<div class="hero-stats">
+							<div class="stat-item">
+								<span class="stat-number">€400K</span>
+								<span class="stat-label">Monthly Savings</span>
+							</div>
+							<div class="stat-item">
+								<span class="stat-number">9</span>
+								<span class="stat-label">Industries</span>
+							</div>
+							<div class="stat-item">
+								<span class="stat-number">100+</span>
+								<span class="stat-label">Events Audience</span>
+							</div>
+						</div>
+					</div>
 
+					<div class="hero-visual" id="heroVisual">
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="hall-of-fame" class="hall-of-fame-section">
+			<div class="achievements-container">
+				<header class="main-header" id="main-header">
+					<h1 class="primary-title" id="primary-title">Multi-Domain Hall of Fame</h1>
+					<p class="primary-subtitle" id="primary-subtitle"><span class="metallic-text"><strong>Competing and winning in:</strong><br>music, startups, business, and engineering</span></p>
+				</header>
+
+				<main class="main-content" id="main-content">
+					<div class="categories-grid" id="categories-grid">
+						<section class="achievement-category" id="ai-technology-2025-category">
+							<header class="category-title-section" id="ai-technology-category-header">
+								<div class="category-icon-wrapper" id="ai-technology-icon">🤖</div>
+								<div class="category-details" id="ai-technology-details">
+									<h3>2025 — AI & Technology Excellence</h3>
+									<p>Industry recognition for artificial intelligence innovation in retail</p>
+								</div>
+							</header>
+
+							<div class="achievements-list" id="ai-technology-achievements-list">
+								<article class="individual-achievement" id="reta-awards-achievement">
+									<div class="achievement-title-row" id="reta-awards-title-row">
+										<h4 class="achievement-main-title" id="reta-awards-title">RetaAwards 2025 — Best Artificial Intelligence</h4>
+										<span class="metallic-rank-badge" id="reta-awards-badge">1st Place</span>
+									</div>
+									<p class="achievement-description-text" id="reta-awards-description">Awarded by EHI Retail Institute for MediaMarktSaturn's AI innovation. Led copywriting for the award application that secured victory in Europe's premier retail technology competition.</p>
+									<p class="achievement-context-info" id="reta-awards-context">February 2025 • European retail technology awards recognizing AI excellence</p>
+								</article>
+							</div>
+						</section>
+
+						<section class="achievement-category" id="corporate-innovation-2022-category">
+							<header class="category-title-section" id="corporate-innovation-category-header">
+								<div class="category-icon-wrapper" id="corporate-innovation-icon">💡</div>
+								<div class="category-details" id="corporate-innovation-details">
+									<h3>2022 — Corporate Innovation Leadership</h3>
+									<p>Team leadership and innovative solution development at enterprise scale</p>
+								</div>
+							</header>
+
+							<div class="achievements-list" id="corporate-innovation-achievements-list">
+								<article class="individual-achievement" id="innovation-days-achievement">
+									<div class="achievement-title-row" id="innovation-days-title-row">
+										<h4 class="achievement-main-title" id="innovation-days-title">Innovation Days Challenge @ MediaMarktSaturn</h4>
+										<span class="metallic-rank-badge" id="innovation-days-badge">1st Place</span>
+									</div>
+									<p class="achievement-description-text" id="innovation-days-description">Won first place with team for most innovative idea among 8 teams and around 100 participants. Led cross-functional collaboration and strategic solution design.</p>
+									<p class="achievement-context-info" id="innovation-days-context">December 2022 • MediaMarktSaturn Deutschland internal innovation competition</p>
+								</article>
+							</div>
+						</section>
+
+						<section class="achievement-category" id="academic-entrepreneurial-2016-category">
+							<header class="category-title-section" id="academic-entrepreneurial-category-header">
+								<div class="category-icon-wrapper" id="academic-entrepreneurial-icon">🎓</div>
+								<div class="category-details" id="academic-entrepreneurial-details">
+									<h3>2016 — Academic & Entrepreneurial Excellence</h3>
+									<p>Research innovation and international startup recognition</p>
+								</div>
+							</header>
+
+							<div class="achievements-list" id="academic-entrepreneurial-achievements-list">
+								<article class="individual-achievement" id="western-balkans-achievement">
+									<div class="achievement-title-row" id="western-balkans-title-row">
+										<h4 class="achievement-main-title" id="western-balkans-title">Western Balkans Startups Competition</h4>
+										<span class="metallic-rank-badge" id="western-balkans-badge">Finalist</span>
+									</div>
+									<p class="achievement-description-text" id="western-balkans-description">Outperformed competitors from 5 countries as the youngest contestant without previous experience. Demonstrated exceptional entrepreneurial vision and innovation potential.</p>
+									<p class="achievement-context-info" id="western-balkans-context">February 2016 • International competition fostering regional entrepreneurship</p>
+								</article>
+
+								<article class="individual-achievement" id="fcse-conference-achievement">
+									<div class="achievement-title-row" id="fcse-conference-title-row">
+										<h4 class="achievement-main-title" id="fcse-conference-title">FCSE Student Conference</h4>
+										<span class="metallic-rank-badge" id="fcse-conference-badge">1st Place</span>
+									</div>
+									<p class="achievement-description-text" id="fcse-conference-description">Beat over 60 teams with research on "Tweet sentiment analysis for sports brands" using Alchemy API. Demonstrated how companies can improve business intelligence through advanced analytics.</p>
+									<p class="achievement-context-info" id="fcse-conference-context">January 2016 • Faculty of Computer Science and Engineering - Skopje</p>
+								</article>
+							</div>
+						</section>
+
+						<section class="achievement-category" id="startup-innovation-2015-category">
+							<header class="category-title-section" id="startup-innovation-category-header">
+								<div class="category-icon-wrapper" id="startup-innovation-icon">🚀</div>
+								<div class="category-details" id="startup-innovation-details">
+									<h3>2015 — International Startup Recognition</h3>
+									<p>Regional startup competition achievement with international backing</p>
+								</div>
+							</header>
+
+							<div class="achievements-list" id="startup-innovation-achievements-list">
+								<article class="individual-achievement" id="pioneers-balkans-achievement">
+									<div class="achievement-title-row" id="pioneers-balkans-title-row">
+										<h4 class="achievement-main-title" id="pioneers-balkans-title">Pioneers of the Balkans</h4>
+										<span class="metallic-rank-badge" id="pioneers-balkans-badge">Semifinalist</span>
+									</div>
+									<p class="achievement-description-text" id="pioneers-balkans-description">Competed with 583 applications from across the Balkans as the youngest candidate among chosen startups, without previous experience. Supported by Pioneers Festival, World Bank Group & European Commission.</p>
+									<p class="achievement-context-info" id="pioneers-balkans-context">November 2015 • Premier regional startup acceleration program</p>
+								</article>
+							</div>
+						</section>
+
+						<section class="achievement-category" id="entertainment-performance-2010-category">
+							<header class="category-title-section" id="entertainment-performance-category-header">
+								<div class="category-icon-wrapper" id="entertainment-performance-icon">🎤</div>
+								<div class="category-details" id="entertainment-performance-details">
+									<h3>2010 — National Entertainment Excellence</h3>
+									<p>Television competition success demonstrating performance mastery</p>
+								</div>
+							</header>
+
+							<div class="achievements-list" id="entertainment-performance-achievements-list">
+								<article class="individual-achievement" id="macedonian-idol-achievement">
+									<div class="achievement-title-row" id="macedonian-idol-title-row">
+										<h4 class="achievement-main-title" id="macedonian-idol-title">Macedonian Idol Season 1</h4>
+										<span class="metallic-rank-badge" id="macedonian-idol-badge">Finalist</span>
+									</div>
+									<p class="achievement-description-text" id="macedonian-idol-description">Beat over 3,000 candidates from across the country as the youngest contestant without previous experience. Advanced to finals of Macedonia's first and only season of the Pop Idol franchise.</p>
+									<p class="achievement-context-info" id="macedonian-idol-context">November 2010 • A1 TV national television competition</p>
+								</article>
+							</div>
+						</section>
+
+						<section class="achievement-category" id="early-excellence-2007-category">
+							<header class="category-title-section" id="early-excellence-category-header">
+								<div class="category-icon-wrapper" id="early-excellence-icon">🏅</div>
+								<div class="category-details" id="early-excellence-details">
+									<h3>2007 — Multi-Disciplinary Foundation</h3>
+									<p>Early competitive excellence across diverse domains</p>
+								</div>
+							</header>
+
+							<div class="achievements-list" id="early-excellence-achievements-list">
+								<article class="individual-achievement" id="multiple-honors-achievement">
+									<div class="achievement-title-row" id="multiple-honors-title-row">
+										<h4 class="achievement-main-title" id="multiple-honors-title">Multiple International & National Honors</h4>
+										<span class="metallic-rank-badge" id="multiple-honors-badge">Multiple Awards</span>
+									</div>
+									<p class="achievement-description-text" id="multiple-honors-description">Competed since primary school as choir member, poetry writer, basketball player, and math contestant. Won several local, national and international awards across sport, music, poetry, English language, research and mathematics.</p>
+									<p class="achievement-context-info" id="multiple-honors-context">January 2007 • Local, regional, national and international competitions</p>
+								</article>
+							</div>
+						</section>
+					</div>
+				</main>
+			</div>
+		</section>
+
+		<section id="extraordinaryJourney" aria-label="Extraordinary Journey">
+			<div class="container">
+				<div class="journeyHeader">
+					<h2 class="journeyTitle">Building an Extraordinary Life</h2>
+					<p class="journeyIntro">
+						I am intentionally crafting a life I love, one day at a time. Gratitude is my foundation.<br>What began as a daily practice has become a deep well of appreciation that shifts how I see the world.
+					</p>
+				</div>
+
+				<div class="journeyGrid">
+					<article class="journeyNarrative">
+						<p class="journeyParagraph">
+							In quiet moments I capture evolving thoughts in my <span class="accent">Mental Shelf</span> document, my home for insights and a bridge between daily experiences and the deeper patterns I keep discovering. Writing helps me materialize
+							clarity and honor the ideas that want to grow.
+						</p>
+						<br>
+						<p class="journeyParagraph">
+							People energize me. I am endlessly fascinated by the unique worlds each person carries within. These connections fuel my growth and remind me we belong to something larger than ourselves. I see systems everywhere: the elegant ways parts connect, how
+							small changes ripple outward, how beautiful complexity emerges from simple interactions.
+						</p>
+						<br>
+						<p class="journeyParagraph">
+							My joy lives in breaking things down and building them back up from scratch. When something isn’t working, I question assumptions and reimagine what becomes possible when we start fresh. Each day I choose to show up with
+							<span class="accent">gratitude</span>, capture thoughts, connect with people, think in systems, and rebuild what needs rebuilding. The extraordinary life is now, happening through intentional action and love.
+						</p>
+					</article>
+
+					<aside class="journeyAside">
+						<div class="journeyCard" id="gratitudePractice">
+							<div class="cardTitle">Gratitude Practice</div>
+							<div class="cardMeta">Daily foundation</div>
+							<div class="cardText">
+								Intentional thankfulness evolved into a transformative lens. It anchors my choices and brightens how I experience the world.
+							</div>
+						</div>
+
+						<div class="journeyCard" id="mentalShelfNote">
+							<div class="cardTitle">Mental Shelf</div>
+							<div class="cardMeta">Thinking in public</div>
+							<div class="cardText">
+								A living archive where ideas compound. Notes become patterns, patterns become direction.
+							</div>
+						</div>
+
+						<div class="journeyCard" id="systemsThinking">
+							<div class="cardTitle">Systems Thinking</div>
+							<div class="cardMeta">Patterns and connections</div>
+							<div class="cardText">
+								I map how parts influence each other, design small interventions, and let compounding effects do the rest.
+							</div>
+						</div>
+
+					</aside>
+				</div>
+			</div>
+		</section>
+
+		<section class="strategy-section" id="strategy">
+			<div class="container">
+				<div class="section-header">
+					<h2 class="section-title">Strategy Canvas</h2>
+					<p class="section-subtitle">
+						Comparing my cross-functional skillset against a typical software engineer profile
+					</p>
+				</div>
+
+				<div class="strategy-grid">
+					<div class="radar-container">
+						<div class="comparison-legend">
+							<div class="legend-item">
+								<div class="legend-color" style="background-color: #20B2AA;"></div>
+								<span>Emilia (Cross-functional Leader)</span>
+							</div>
+							<div class="legend-item">
+								<div class="legend-color" style="background-color: #FF6384;"></div>
+								<span>Typical Software Engineer</span>
+							</div>
+						</div>
+						<div class="radar-wrapper">
+							<canvas id="radarChart" width="700" height="700"></canvas>
+						</div>
+					</div>
+
+					<div class="strategy-insights" style="margin-top: 60px;">
+						<div class="insight-card">
+							<h3 class="insight-title">Product Strategy Excellence</h3>
+							<p class="insight-description">
+								While typical engineers implement features, I drive product strategy from market research through execution, combining technical feasibility analysis with user experience design and business impact measurement.
+							</p>
+						</div>
+						<div class="insight-card">
+							<h3 class="insight-title">Marketing Technology Integration</h3>
+							<p class="insight-description">
+								Beyond writing code, I architect marketing-technology solutions that drive measurable growth through technical SEO, content automation, data analytics, and conversion optimization across the entire customer journey.
+							</p>
+						</div>
+						<div class="insight-card">
+							<h3 class="insight-title">Executive Leadership Capability</h3>
+							<p class="insight-description">
+								I operate at the intersection of engineering, product, marketing, and business strategy, translating complex technical concepts for C-level stakeholders while driving organizational alignment around data-driven decisions.
+							</p>
+						</div>
+						<div class="insight-card">
+							<h3 class="insight-title">Cross-Industry Strategic Planning</h3>
+							<p class="insight-description">
+								Through experience across 9 industries, I bring strategic planning capabilities that bridge technical implementation with market dynamics, enabling companies to scale innovative solutions across diverse business contexts.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="projects-section" id="projects">
+			<div class="container">
+				<div class="section-header">
+					<h2 class="section-title" style="color: var(--black);">Flagship Projects</h2>
+					<p class="section-subtitle" style="color: var(--gray-600);">
+						Open-source innovations at the intersection of AI, semantic web, and enterprise SEO
+					</p>
+				</div>
+
+				<div class="projects-grid">
+					<div class="project-card">
+						<div class="project-header">
+							<div class="project-icon">
+								<i class="fas fa-project-diagram"></i>
+							</div>
+							<h3 class="project-title">SEOntology</h3>
+							<p class="project-tagline">Universal Semantic Framework for SEO</p>
+						</div>
+						<div class="project-content">
+							<p class="project-description">
+								The first comprehensive ontology for SEO, serving as a semantic operating system for modern content strategy. Enables AI agents, apps, and researchers to reason about, audit, and optimize web content through standardized vocabulary and linked data principles.
+							</p>
+							<div class="project-tech">
+								<span class="tech-tag">OWL/RDF</span>
+								<span class="tech-tag">Semantic Web</span>
+								<span class="tech-tag">Knowledge Graphs</span>
+								<span class="tech-tag">AI Reasoning</span>
+								<span class="tech-tag">Schema.org Extension</span>
+							</div>
+							<div class="project-links">
+								<a href="https://github.com/seontology/seontology" class="project-link" target="_blank">
+									View Code
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="project-card">
+						<div class="project-header">
+							<div class="project-icon">
+								<i class="fas fa-spider"></i>
+							</div>
+							<h3 class="project-title">WebKnoGraph</h3>
+							<p class="project-tagline">AI-Powered Internal Linking Optimization</p>
+						</div>
+						<div class="project-content">
+							<p class="project-description">
+								Revolutionary open-source framework that combines vector embeddings, graph algorithms, and GNN-based link prediction to optimize internal linking at scale. The first transparent, AI-driven solution for enterprise SEO automation with academic-grade reproducibility.
+							</p>
+							<div class="project-tech">
+								<span class="tech-tag">Graph Neural Networks</span>
+								<span class="tech-tag">Vector Embeddings</span>
+								<span class="tech-tag">Python</span>
+								<span class="tech-tag">GraphSAGE</span>
+								<span class="tech-tag">PageRank</span>
+							</div>
+							<div class="project-links">
+								<a href="https://github.com/martech-engineer/WebKnoGraph" class="project-link" target="_blank">
+									View Code
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="experience-section" id="experience">
+			<div class="container">
+				<div class="section-header">
+					<h2 class="section-title">International Professional Journey</h2>
+					<p class="section-subtitle" style="color: var(--gray-600);">
+						Building innovative solutions across enterprise AI, product strategy, and marketing technology
+					</p>
+				</div>
+
+				<div class="timeline">
+					<div class="timeline-item">
+						<div class="timeline-content">
+							<h3 class="timeline-role">GenAI Expert & Project Lead</h3>
+							<h4 class="timeline-company">MediaMarktSaturn Retail GmbH</h4>
+							<p class="timeline-description">
+								Led enterprise AI strategy implementation, conducting workshops for cross-functional teams and bringing 2 GenAI use cases from ideation to production. Established cross-functional leadership across multidisciplinary teams, enhancing AI literacy across
+								technical marketing, legal, and HR departments.
+							</p>
+						</div>
+						<div class="timeline-date">2024-2025</div>
+					</div>
+
+					<div class="timeline-item">
+						<div class="timeline-content">
+							<h3 class="timeline-role">Product SEO Architect</h3>
+							<h4 class="timeline-company">MediaMarktSaturn Technology</h4>
+							<p class="timeline-description">
+								Reduced server requests by 40+ million, saving €400K monthly internationally. Led GDPR-compliant web app development for server log analytics. Represented company as speaker at SMX Munich, Germany's largest digital marketing conference.
+							</p>
+						</div>
+						<div class="timeline-date">2023-2024</div>
+					</div>
+
+					<div class="timeline-item">
+						<div class="timeline-content">
+							<h3 class="timeline-role">Senior VIP Growth Engineer</h3>
+							<h4 class="timeline-company">WordLift & Strategic Partners</h4>
+							<p class="timeline-description">
+								Led 30+ enterprise clients through growth engineering initiatives, developing ML-powered content frameworks and computer vision models. Created technical content featured in top industry newsletters, generating 40+ qualified leads through thought leadership.
+							</p>
+						</div>
+						<div class="timeline-date">2019-Present</div>
+					</div>
+
+					<div class="timeline-item">
+						<div class="timeline-content">
+							<h3 class="timeline-role">Python Engineer (Technical SEO)</h3>
+							<h4 class="timeline-company">meinestadt.de (Axel Springer)</h4>
+							<p class="timeline-description">
+								Engineered internal linking automation using NLP and ML algorithms for semantic search optimization. Developed HTML sitemap algorithms processing millions of entries, achieving 150%+ site visit uplift. Performance led to accelerated probation completion.
+							</p>
+						</div>
+						<div class="timeline-date">2020-2021</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="community-section" id="community">
+			<div class="container">
+				<div class="section-header">
+					<h2 class="section-title">Who I Want to Work With</h2>
+					<p class="section-subtitle">
+						Seeking collaboration with visionary teams and individuals who share my passion for innovation
+					</p>
+				</div>
+
+				<div class="collaboration-grid">
+					<div class="collaboration-card">
+						<i class="fas fa-rocket collaboration-icon"></i>
+						<h3 class="collaboration-title">Growth-Minded Leaders</h3>
+						<p class="collaboration-description">
+							Executives and senior professionals who combine ambitious growth targets with intellectual humility, constantly seeking to learn, iterate, and challenge their own assumptions while driving measurable business outcomes.
+						</p>
+					</div>
+
+					<div class="collaboration-card">
+						<i class="fas fa-chart-line collaboration-icon"></i>
+						<h3 class="collaboration-title">Data-Driven Decision Makers</h3>
+						<p class="collaboration-description">
+							Teams that balance speed of execution with analytical rigor, using data to validate hypotheses while maintaining bias toward action when market opportunities demand rapid response.
+						</p>
+					</div>
+
+					<div class="collaboration-card">
+						<i class="fas fa-chess collaboration-icon"></i>
+						<h3 class="collaboration-title">Strategic Thinkers</h3>
+						<p class="collaboration-description">
+							Product managers, CTOs, and business leaders who understand that sustainable competitive advantages emerge from the intersection of technology innovation, market positioning, and operational excellence.
+						</p>
+					</div>
+
+					<div class="collaboration-card">
+						<i class="fas fa-award collaboration-icon"></i>
+						<h3 class="collaboration-title">Self-Critical High Performers</h3>
+						<p class="collaboration-description">
+							Professionals who maintain high standards while embracing constructive feedback, continuously improving their craft through reflection, peer learning, and commitment to delivering exceptional results.
+						</p>
+					</div>
+
+					<div class="collaboration-card">
+						<i class="fas fa-brain collaboration-icon"></i>
+						<h3 class="collaboration-title">AI-Forward Innovators</h3>
+						<p class="collaboration-description">
+							Technologists and entrepreneurs who recognize AI as a transformative force, actively experimenting with emerging technologies while maintaining ethical considerations and focusing on human-centered outcomes.
+						</p>
+					</div>
+
+					<div class="collaboration-card">
+						<i class="fas fa-handshake collaboration-icon"></i>
+						<h3 class="collaboration-title">Cross-Functional Collaborators</h3>
+						<p class="collaboration-description">
+							Team players who thrive in matrix organizations, excel at breaking down silos between departments, and understand that the best solutions emerge from diverse perspectives and interdisciplinary approaches.
+						</p>
+					</div>
+				</div>
+
+				<div class="section-header" style="margin-top: 80px;">
+					<h2 class="section-title">Cross-Context Expertise</h2>
+					<p class="section-subtitle">
+						Proven ability to drive results across diverse organizational structures and industry verticals
+					</p>
+				</div>
+
+				<div class="work-context-grid">
+					<div class="context-card">
+						<h3 class="context-title">Startup Environments</h3>
+						<p class="context-description">
+							Thrive in resource-constrained, high-velocity environments where cross-functional expertise accelerates product-market fit discovery. Excel at wearing multiple hats while establishing scalable technical foundations.
+						</p>
+						<div class="context-highlights">
+							<span class="highlight-tag">0-1 Product Development</span>
+							<span class="highlight-tag">Technical Co-founder Advisory</span>
+							<span class="highlight-tag">Rapid Prototyping</span>
+						</div>
+					</div>
+
+					<div class="context-card">
+						<h3 class="context-title">Scale-up Growth Phase</h3>
+						<p class="context-description">
+							Navigate the complexity of scaling technical and organizational systems while maintaining product quality and market responsiveness. Bridge startup agility with enterprise-grade reliability.
+						</p>
+						<div class="context-highlights">
+							<span class="highlight-tag">Growth Engineering</span>
+							<span class="highlight-tag">Team Scaling</span>
+							<span class="highlight-tag">Process Optimization</span>
+						</div>
+					</div>
+
+					<div class="context-card">
+						<h3 class="context-title">Enterprise Corporations</h3>
+						<p class="context-description">
+							Drive innovation within complex organizational structures, managing stakeholder alignment across multiple business units while implementing strategic technical initiatives at scale.
+						</p>
+						<div class="context-highlights">
+							<span class="highlight-tag">Digital Transformation</span>
+							<span class="highlight-tag">Stakeholder Management</span>
+							<span class="highlight-tag">Compliance Integration</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="industry-expertise">
+					<h3 class="industry-title">B2B SaaS & DTC Brand Specialization</h3>
+					<div class="industry-grid">
+						<div class="industry-category">
+							<h4 class="category-title">B2B SaaS Platforms</h4>
+							<div class="industry-tags">
+								<span class="industry-tag">Marketing Technology</span>
+								<span class="industry-tag">Content Management Systems</span>
+								<span class="industry-tag">Analytics & Business Intelligence</span>
+								<span class="industry-tag">Knowledge Management</span>
+							</div>
+						</div>
+						<div class="industry-category">
+							<h4 class="category-title">Direct-to-Consumer Brands</h4>
+							<div class="industry-tags">
+								<span class="industry-tag">E-commerce & Retail</span>
+								<span class="industry-tag">Consumer Electronics</span>
+								<span class="industry-tag">Digital Media & Entertainment</span>
+							</div>
+						</div>
+					</div>
+					<div class="industry-additional">
+						<p><strong>Additional Industries:</strong> Financial Services, Healthcare Technology, Legal Technology, Real Estate & Property Management, Education Technology</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="literary-section" id="literary">
+			<div class="container">
+				<div class="lit-header">
+					<h2 class="lit-title">Literary Influences</h2>
+					<p class="lit-subtitle" style="color: #ff4f9a;">Reading is where I find energy, perspective, and new ideas</p>
+					<p class="lit-intro">
+						My shelves bring together business strategy, psychology, finance, discipline, and feminine energy — each book chosen because it speaks to both the mind and the heart. From <strong>Pricing Creativity</strong> by Blair Enns to <strong>Rich Dad, Poor Dad</strong>
+						by Robert Kiyosaki, and the wisdom of Eric Schmidt’s
+						<strong>How Google Works</strong> and <strong>Trillion Dollar Coach</strong>, these works have guided how I think, create, and connect. This collection reflects the values that inspire me every day: curiosity, courage, and compassion
+						woven into every chapter.
+					</p>
+				</div>
+
+				<div class="shelves-grid">
+					<div class="shelf-card">
+						<div class="shelf-body">
+							<h3 class="shelf-title">Business Strategy</h3>
+							<div class="book-list">
+								<div class="book-item">
+									<div class="book-title">Pricing Creativity</div>
+									<div class="book-author">Blair Enns</div>
+								</div>
+								<div class="book-item">
+									<div class="book-title">How Google Works</div>
+									<div class="book-author">Eric Schmidt</div>
+								</div>
+								<div class="book-item">
+									<div class="book-title">Trillion Dollar Coach</div>
+									<div class="book-author">Eric Schmidt</div>
+								</div>
+								<div class="book-item">
+									<div class="book-title">Rich Dad, Poor Dad</div>
+									<div class="book-author">Robert Kiyosaki</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<section class="contact-section">
+			<div class="container">
+				<div class="section-header">
+					<h2 class="section-title">"If you like it then you shoulda put a ring on it"</h2>
+					<p class="section-subtitle" style="color: var(--gray-600);">
+						I'm ready to bridge AI innovation with business impact
+					</p>
+				</div>
+
+				<div class="contact-grid">
+					<div class="contact-item">
+						<i class="fas fa-envelope contact-icon"></i>
+						<a href="mailto:emmagjorgjevska@gmail.com" class="contact-link">
+							emmagjorgjevska@gmail.com
+						</a>
+					</div>
+					<div class="contact-item">
+						<i class="fab fa-linkedin contact-icon"></i>
+						<a href="https://linkedin.com/in/emilijagjorgjevska" class="contact-link" target="_blank">
+							LinkedIn Profile
+						</a>
+					</div>
+					<div class="contact-item">
+						<i class="fab fa-github contact-icon"></i>
+						<a href="https://github.com/martech-engineer" class="contact-link" target="_blank">
+							GitHub Portfolio
+						</a>
+					</div>
+					<div class="contact-item">
+						<i class="fas fa-phone contact-icon"></i>
+						<a href="tel:+491631580855" class="contact-link">
+							+49 1631 580 855
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<footer class="main-footer" id="main-footer">
+			<p>© 2025 Emilia Gjorgjevska. Multi-domain professional excellence.</p>
+		</footer>
+	</div>
 
     <script>
         // Background Animation with Three.js
