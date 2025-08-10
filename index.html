@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emilia Gjorgjevska - Progressive Software Engineer & GenAI Strategist</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <style>
@@ -1088,20 +1089,126 @@
 }
   100% { background-position: 200% center; }
 }
+/* === Extraordinary Journey Section (scoped) === */
+#extraordinaryJourney {
+  padding: 80px 0;
+  background: var(--white);
+  color: var(--black);
+}
 
+#extraordinaryJourney .journeyHeader {
+  text-align: center;
+  max-width: 980px;
+  margin: 0 auto 56px auto;
+}
 
-</style>
+#extraordinaryJourney .journeyTitle {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TMN0THB2K2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', 'G-TMN0THB2K2');
-</script>
+#extraordinaryJourney .journeyIntro {
+  font-size: 1.1rem;
+  color: var(--gray-700);
+  line-height: 1.8;
+}
+
+#extraordinaryJourney .journeyGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#extraordinaryJourney .journeyNarrative {
+  background: var(--gray-100);
+  border: 1px solid var(--gray-200);
+  padding: 32px;
+}
+
+#extraordinaryJourney .journeyParagraph {
+  font-size: 1.05rem;
+  color: var(--gray-700);
+  line-height: 1.8;
+}
+
+#extraordinaryJourney .journeyAside {
+  display: grid;
+  gap: 24px;
+}
+
+#extraordinaryJourney .journeyCard {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  padding: 24px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+#extraordinaryJourney .journeyCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  border-color: var(--gray-300);
+}
+
+#extraordinaryJourney .cardTitle {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+#extraordinaryJourney .cardMeta {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  margin-bottom: 6px;
+}
+
+#extraordinaryJourney .cardText {
+  color: var(--gray-700);
+  line-height: 1.7;
+}
+
+/* subtle systems thinking motif */
+#extraordinaryJourney .systemsCanvas {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  height: 220px;
+  overflow: hidden;
+}
+
+#extraordinaryJourney .systemsSvg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.14;
+}
+
+#extraordinaryJourney .accent {
+  color: var(--turquoise);
+  font-weight: 700;
+}
+
+/* responsive */
+@media (max-width: 992px) {
+  #extraordinaryJourney .journeyGrid {
+    grid-template-columns: 1fr;
+  }
+}
+    </style>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TMN0THB2K2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+          function gtag(){ dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', 'G-TMN0THB2K2');
+    </script>
 
 </head>
+
 <body>
     <!-- Background Animation -->
     <div class="background-animation" id="backgroundAnimation"></div>
@@ -1110,6 +1217,7 @@
     <nav class="nav">
         <div class="nav-links">
             <a href="#home" class="nav-link active">Home</a>
+            <a href="#extraordinaryJourney" class="nav-link">Journey</a>
             <a href="#strategy" class="nav-link">Strategy</a>
             <a href="#projects" class="nav-link">Projects</a>
             <a href="#experience" class="nav-link">Experience</a>
@@ -1124,28 +1232,28 @@
                 <div class="hero-content">
                     <h1 class="hero-title gradient" style="margin-top:2cm;">Emilia Gjorgjevska</h1>
                     <p class="hero-subtitle">Progressive Software Engineer & GenAI Strategist</p>
+                    <p style="font-size:0.9rem; color: var(--gray-600); margin-top: 12px;"><em>Best experienced on desktop for full visuals and animations.</em></p>
+                    <br>
                     <p class="hero-description">
-                        Artificially intelligent, naturally sentient. Cross-functional engineering leader bridging AI innovation, 
-                        product strategy, and marketing excellence. Open-source contributor specializing in semantic web technologies, 
-                        knowledge graphs, and enterprise AI transformation.
+                        Artificially intelligent, naturally sentient. Cross-functional engineering leader based in the beautiful city of Munich in Germany, bridging AI innovation, product strategy, and marketing excellence. Open-source contributor specializing in semantic web technologies, knowledge graphs, and enterprise AI
+                        transformation.
                     </p>
-<p style="font-size:0.9rem; color: var(--gray-600); margin-top: 12px;"><em>Best experienced on desktop for full visuals and animations.</em></p>
-                    
-                    
-<div class="quote-banner">
-  <div class="quote-mark">“</div>
-  <div class="quote-text">
-    <span class="quote-accent">Fortune favors the bold</span>
-  </div>
-  <div class="quote-meta">Statement of intent</div>
-</div>
 
-<div style="margin-bottom: 48px; padding: 20px; background: var(--gray-100); border-left: 4px solid var(--black);">
+
+                    <div class="quote-banner">
+                        <div class="quote-mark">“</div>
+                        <div class="quote-text">
+                            <span class="quote-accent">Fortune favors the bold</span>
+                        </div>
+                        <div class="quote-meta">Statement of intent</div>
+                    </div>
+
+                    <div style="margin-bottom: 48px; padding: 20px; background: var(--gray-100); border-left: 4px solid var(--black);">
                         <p style="margin: 0; font-size: 1rem; color: var(--black); font-weight: 500; line-height: 1.6;">
                             <strong style="color: var(--black);">GenAI-enablement stack:</strong> Loveable, Claude Max, Gemini Pro, ChatGPT Plus, Adobe Firefly, Runway, ElevenLabs, CapCut, Canva
                         </p>
                     </div>
-                    
+
                     <div class="hero-stats">
                         <div class="stat-item">
                             <span class="stat-number">€400K</span>
@@ -1161,13 +1269,75 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="hero-visual" id="heroVisual">
                     <!-- 3D Animation will be inserted here -->
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Extraordinary Journey -->
+    <section id="extraordinaryJourney" aria-label="Extraordinary Journey">
+        <div class="container">
+            <div class="journeyHeader">
+                <h2 class="journeyTitle">Building an Extraordinary Life</h2>
+                <p class="journeyIntro">
+                    I am intentionally crafting a life I love, one day at a time. Gratitude is my foundation.<br>What began as a daily practice has become a deep well of appreciation that shifts how I see the world.
+                </p>
+            </div>
+
+            <div class="journeyGrid">
+                <!-- Left: Narrative -->
+                <article class="journeyNarrative">
+                    <p class="journeyParagraph">
+                        In quiet moments I capture evolving thoughts in my <span class="accent">Mental Shelf</span> document, my home for insights and a bridge between daily experiences and the deeper patterns I keep discovering. Writing helps me materialize
+                        clarity and honor the ideas that want to grow.
+                    </p>
+                    <br>
+                    <p class="journeyParagraph">
+                        People energize me. I am endlessly fascinated by the unique worlds each person carries within. These connections fuel my growth and remind me we belong to something larger than ourselves. I see systems everywhere: the elegant ways parts connect, how
+                        small changes ripple outward, how beautiful complexity emerges from simple interactions.
+                    </p>
+                    <br>
+                    <p class="journeyParagraph">
+                        My joy lives in breaking things down and building them back up from scratch. When something isn’t working, I question assumptions and reimagine what becomes possible when we start fresh. Each day I choose to show up with
+                        <span class="accent">gratitude</span>, capture thoughts, connect with people, think in systems, and rebuild what needs rebuilding. The extraordinary life is now, happening through intentional action and love.
+                    </p>
+                </article>
+
+                <!-- Right: Cards -->
+                <aside class="journeyAside">
+                    <div class="journeyCard" id="gratitudePractice">
+                        <div class="cardTitle">Gratitude Practice</div>
+                        <div class="cardMeta">Daily foundation</div>
+                        <div class="cardText">
+                            Intentional thankfulness evolved into a transformative lens. It anchors my choices and brightens how I experience the world.
+                        </div>
+                    </div>
+
+                    <div class="journeyCard" id="mentalShelfNote">
+                        <div class="cardTitle">Mental Shelf</div>
+                        <div class="cardMeta">Thinking in public</div>
+                        <div class="cardText">
+                            A living archive where ideas compound. Notes become patterns, patterns become direction.
+                        </div>
+                    </div>
+
+                    <div class="journeyCard" id="systemsThinking">
+                        <div class="cardTitle">Systems Thinking</div>
+                        <div class="cardMeta">Patterns and connections</div>
+                        <div class="cardText">
+                            I map how parts influence each other, design small interventions, and let compounding effects do the rest.
+                        </div>
+                    </div>
+
+                </aside>
+            </div>
+        </div>
+    </section>
+
+
 
     <!-- Strategy Canvas -->
     <section class="strategy-section" id="strategy">
@@ -1200,29 +1370,25 @@
                     <div class="insight-card">
                         <h3 class="insight-title">Product Strategy Excellence</h3>
                         <p class="insight-description">
-                            While typical engineers implement features, I drive product strategy from market research through execution, 
-                            combining technical feasibility analysis with user experience design and business impact measurement.
+                            While typical engineers implement features, I drive product strategy from market research through execution, combining technical feasibility analysis with user experience design and business impact measurement.
                         </p>
                     </div>
                     <div class="insight-card">
                         <h3 class="insight-title">Marketing Technology Integration</h3>
                         <p class="insight-description">
-                            Beyond writing code, I architect marketing-technology solutions that drive measurable growth through 
-                            technical SEO, content automation, data analytics, and conversion optimization across the entire customer journey.
+                            Beyond writing code, I architect marketing-technology solutions that drive measurable growth through technical SEO, content automation, data analytics, and conversion optimization across the entire customer journey.
                         </p>
                     </div>
                     <div class="insight-card">
                         <h3 class="insight-title">Executive Leadership Capability</h3>
                         <p class="insight-description">
-                            I operate at the intersection of engineering, product, marketing, and business strategy, 
-                            translating complex technical concepts for C-level stakeholders while driving organizational alignment around data-driven decisions.
+                            I operate at the intersection of engineering, product, marketing, and business strategy, translating complex technical concepts for C-level stakeholders while driving organizational alignment around data-driven decisions.
                         </p>
                     </div>
                     <div class="insight-card">
                         <h3 class="insight-title">Cross-Industry Strategic Planning</h3>
                         <p class="insight-description">
-                            Through experience across 9 industries, I bring strategic planning capabilities that bridge technical implementation 
-                            with market dynamics, enabling companies to scale innovative solutions across diverse business contexts.
+                            Through experience across 9 industries, I bring strategic planning capabilities that bridge technical implementation with market dynamics, enabling companies to scale innovative solutions across diverse business contexts.
                         </p>
                     </div>
                 </div>
@@ -1251,9 +1417,7 @@
                     </div>
                     <div class="project-content">
                         <p class="project-description">
-                            The first comprehensive ontology for SEO, serving as a semantic operating system for modern content strategy. 
-                            Enables AI agents, apps, and researchers to reason about, audit, and optimize web content through standardized vocabulary 
-                            and linked data principles.
+                            The first comprehensive ontology for SEO, serving as a semantic operating system for modern content strategy. Enables AI agents, apps, and researchers to reason about, audit, and optimize web content through standardized vocabulary and linked data principles.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">OWL/RDF</span>
@@ -1280,9 +1444,7 @@
                     </div>
                     <div class="project-content">
                         <p class="project-description">
-                            Revolutionary open-source framework that combines vector embeddings, graph algorithms, and GNN-based link prediction 
-                            to optimize internal linking at scale. The first transparent, AI-driven solution for enterprise SEO automation 
-                            with academic-grade reproducibility.
+                            Revolutionary open-source framework that combines vector embeddings, graph algorithms, and GNN-based link prediction to optimize internal linking at scale. The first transparent, AI-driven solution for enterprise SEO automation with academic-grade reproducibility.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">Graph Neural Networks</span>
@@ -1318,9 +1480,8 @@
                         <h3 class="timeline-role">GenAI Expert & Project Lead</h3>
                         <h4 class="timeline-company">MediaMarktSaturn Retail GmbH</h4>
                         <p class="timeline-description">
-                            Led enterprise AI strategy implementation, conducting workshops for cross-functional teams and bringing 
-                            2 GenAI use cases from ideation to production. Established cross-functional leadership across 
-                            multidisciplinary teams, enhancing AI literacy across technical marketing, legal, and HR departments.
+                            Led enterprise AI strategy implementation, conducting workshops for cross-functional teams and bringing 2 GenAI use cases from ideation to production. Established cross-functional leadership across multidisciplinary teams, enhancing AI literacy across
+                            technical marketing, legal, and HR departments.
                         </p>
                     </div>
                     <div class="timeline-date">2024-2025</div>
@@ -1331,9 +1492,7 @@
                         <h3 class="timeline-role">Product SEO Architect</h3>
                         <h4 class="timeline-company">MediaMarktSaturn Technology</h4>
                         <p class="timeline-description">
-                            Reduced server requests by 40+ million, saving €400K monthly internationally. 
-                            Led GDPR-compliant web app development for server log analytics. Represented company as speaker 
-                            at SMX Munich, Germany's largest digital marketing conference.
+                            Reduced server requests by 40+ million, saving €400K monthly internationally. Led GDPR-compliant web app development for server log analytics. Represented company as speaker at SMX Munich, Germany's largest digital marketing conference.
                         </p>
                     </div>
                     <div class="timeline-date">2023-2024</div>
@@ -1344,9 +1503,7 @@
                         <h3 class="timeline-role">Senior VIP Growth Engineer</h3>
                         <h4 class="timeline-company">WordLift & Strategic Partners</h4>
                         <p class="timeline-description">
-                            Led 30+ enterprise clients through growth engineering initiatives, developing ML-powered content frameworks 
-                            and computer vision models. Created technical content featured in top industry newsletters, 
-                            generating 40+ qualified leads through thought leadership.
+                            Led 30+ enterprise clients through growth engineering initiatives, developing ML-powered content frameworks and computer vision models. Created technical content featured in top industry newsletters, generating 40+ qualified leads through thought leadership.
                         </p>
                     </div>
                     <div class="timeline-date">2019-Present</div>
@@ -1357,9 +1514,7 @@
                         <h3 class="timeline-role">Python Engineer (Technical SEO)</h3>
                         <h4 class="timeline-company">meinestadt.de (Axel Springer)</h4>
                         <p class="timeline-description">
-                            Engineered internal linking automation using NLP and ML algorithms for semantic search optimization. 
-                            Developed HTML sitemap algorithms processing millions of entries, achieving 150%+ site visit uplift. 
-                            Performance led to accelerated probation completion.
+                            Engineered internal linking automation using NLP and ML algorithms for semantic search optimization. Developed HTML sitemap algorithms processing millions of entries, achieving 150%+ site visit uplift. Performance led to accelerated probation completion.
                         </p>
                     </div>
                     <div class="timeline-date">2020-2021</div>
@@ -1384,8 +1539,7 @@
                     <i class="fas fa-rocket collaboration-icon"></i>
                     <h3 class="collaboration-title">Growth-Minded Leaders</h3>
                     <p class="collaboration-description">
-                        Executives and senior professionals who combine ambitious growth targets with intellectual humility, 
-                        constantly seeking to learn, iterate, and challenge their own assumptions while driving measurable business outcomes.
+                        Executives and senior professionals who combine ambitious growth targets with intellectual humility, constantly seeking to learn, iterate, and challenge their own assumptions while driving measurable business outcomes.
                     </p>
                 </div>
 
@@ -1393,8 +1547,7 @@
                     <i class="fas fa-chart-line collaboration-icon"></i>
                     <h3 class="collaboration-title">Data-Driven Decision Makers</h3>
                     <p class="collaboration-description">
-                        Teams that balance speed of execution with analytical rigor, using data to validate hypotheses 
-                        while maintaining bias toward action when market opportunities demand rapid response.
+                        Teams that balance speed of execution with analytical rigor, using data to validate hypotheses while maintaining bias toward action when market opportunities demand rapid response.
                     </p>
                 </div>
 
@@ -1402,8 +1555,7 @@
                     <i class="fas fa-chess collaboration-icon"></i>
                     <h3 class="collaboration-title">Strategic Thinkers</h3>
                     <p class="collaboration-description">
-                        Product managers, CTOs, and business leaders who understand that sustainable competitive advantages 
-                        emerge from the intersection of technology innovation, market positioning, and operational excellence.
+                        Product managers, CTOs, and business leaders who understand that sustainable competitive advantages emerge from the intersection of technology innovation, market positioning, and operational excellence.
                     </p>
                 </div>
 
@@ -1412,8 +1564,7 @@
                     <i class="fas fa-award collaboration-icon"></i>
                     <h3 class="collaboration-title">Self-Critical High Performers</h3>
                     <p class="collaboration-description">
-                        Professionals who maintain high standards while embracing constructive feedback, continuously improving 
-                        their craft through reflection, peer learning, and commitment to delivering exceptional results.
+                        Professionals who maintain high standards while embracing constructive feedback, continuously improving their craft through reflection, peer learning, and commitment to delivering exceptional results.
                     </p>
                 </div>
 
@@ -1421,8 +1572,7 @@
                     <i class="fas fa-brain collaboration-icon"></i>
                     <h3 class="collaboration-title">AI-Forward Innovators</h3>
                     <p class="collaboration-description">
-                        Technologists and entrepreneurs who recognize AI as a transformative force, actively experimenting with 
-                        emerging technologies while maintaining ethical considerations and focusing on human-centered outcomes.
+                        Technologists and entrepreneurs who recognize AI as a transformative force, actively experimenting with emerging technologies while maintaining ethical considerations and focusing on human-centered outcomes.
                     </p>
                 </div>
 
@@ -1430,8 +1580,7 @@
                     <i class="fas fa-handshake collaboration-icon"></i>
                     <h3 class="collaboration-title">Cross-Functional Collaborators</h3>
                     <p class="collaboration-description">
-                        Team players who thrive in matrix organizations, excel at breaking down silos between departments, 
-                        and understand that the best solutions emerge from diverse perspectives and interdisciplinary approaches.
+                        Team players who thrive in matrix organizations, excel at breaking down silos between departments, and understand that the best solutions emerge from diverse perspectives and interdisciplinary approaches.
                     </p>
                 </div>
             </div>
@@ -1448,8 +1597,7 @@
                 <div class="context-card">
                     <h3 class="context-title">Startup Environments</h3>
                     <p class="context-description">
-                        Thrive in resource-constrained, high-velocity environments where cross-functional expertise accelerates 
-                        product-market fit discovery. Excel at wearing multiple hats while establishing scalable technical foundations.
+                        Thrive in resource-constrained, high-velocity environments where cross-functional expertise accelerates product-market fit discovery. Excel at wearing multiple hats while establishing scalable technical foundations.
                     </p>
                     <div class="context-highlights">
                         <span class="highlight-tag">0-1 Product Development</span>
@@ -1461,8 +1609,7 @@
                 <div class="context-card">
                     <h3 class="context-title">Scale-up Growth Phase</h3>
                     <p class="context-description">
-                        Navigate the complexity of scaling technical and organizational systems while maintaining product quality 
-                        and market responsiveness. Bridge startup agility with enterprise-grade reliability.
+                        Navigate the complexity of scaling technical and organizational systems while maintaining product quality and market responsiveness. Bridge startup agility with enterprise-grade reliability.
                     </p>
                     <div class="context-highlights">
                         <span class="highlight-tag">Growth Engineering</span>
@@ -1474,8 +1621,7 @@
                 <div class="context-card">
                     <h3 class="context-title">Enterprise Corporations</h3>
                     <p class="context-description">
-                        Drive innovation within complex organizational structures, managing stakeholder alignment across 
-                        multiple business units while implementing strategic technical initiatives at scale.
+                        Drive innovation within complex organizational structures, managing stakeholder alignment across multiple business units while implementing strategic technical initiatives at scale.
                     </p>
                     <div class="context-highlights">
                         <span class="highlight-tag">Digital Transformation</span>
@@ -1508,8 +1654,7 @@
                     </div>
                 </div>
                 <div class="industry-additional">
-                    <p><strong>Additional Industries:</strong> Financial Services, Healthcare Technology, Legal Technology, 
-                    Real Estate & Property Management, Education Technology</p>
+                    <p><strong>Additional Industries:</strong> Financial Services, Healthcare Technology, Legal Technology, Real Estate & Property Management, Education Technology</p>
                 </div>
             </div>
         </div>
@@ -1523,11 +1668,9 @@
                 <h2 class="lit-title">Literary Influences</h2>
                 <p class="lit-subtitle" style="color: #ff4f9a;">Reading is where I find energy, perspective, and new ideas</p>
                 <p class="lit-intro">
-                    My shelves bring together business strategy, psychology, finance, discipline, and feminine energy —
-                    each book chosen because it speaks to both the mind and the heart. From <strong>Pricing Creativity</strong> by Blair Enns
-                    to <strong>Rich Dad, Poor Dad</strong> by Robert Kiyosaki, and the wisdom of Eric Schmidt’s
-                    <strong>How Google Works</strong> and <strong>Trillion Dollar Coach</strong>, these works have guided how I think, create, and connect.
-                    This collection reflects the values that inspire me every day: curiosity, courage, and compassion woven into every chapter.
+                    My shelves bring together business strategy, psychology, finance, discipline, and feminine energy — each book chosen because it speaks to both the mind and the heart. From <strong>Pricing Creativity</strong> by Blair Enns to <strong>Rich Dad, Poor Dad</strong>                    by Robert Kiyosaki, and the wisdom of Eric Schmidt’s
+                    <strong>How Google Works</strong> and <strong>Trillion Dollar Coach</strong>, these works have guided how I think, create, and connect. This collection reflects the values that inspire me every day: curiosity, courage, and compassion
+                    woven into every chapter.
                 </p>
             </div>
 
@@ -1866,9 +2009,12 @@
                 });
             }, observerOptions);
 
-            document.querySelectorAll('.project-card, .insight-card, .collaboration-card, .timeline-item').forEach(el => {
-                observer.observe(el);
-            });
+            document.querySelectorAll(
+			  '.project-card, .insight-card, .collaboration-card, .timeline-item, .journeyCard, #extraordinaryJourney .journeyNarrative'
+			).forEach(el => {
+			  observer.observe(el);
+			});
+
         }
 
         // Initialize everything
@@ -1879,6 +2025,12 @@
             initNavigation();
             initAnimations();
         });
+		document.querySelectorAll(
+		  '.project-card, .insight-card, .collaboration-card, .timeline-item, .journeyCard, #extraordinaryJourney .journeyNarrative'
+		).forEach(el => {
+		  observer.observe(el);
+		});
     </script>
 </body>
+
 </html>
