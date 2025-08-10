@@ -1202,19 +1202,6 @@
             animation: slideInRight 0.8s ease-out;
         }
 
-        /* === Overrides for readability and square design === */
-
-        /* Make hero name solid and highly readable */
-        .hero-title {
-            background: none !important;
-            -webkit-background-clip: initial !important;
-            -webkit-text-fill-color: initial !important;
-            background-clip: initial !important;
-            color: var(--black) !important;
-            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2), 0 2px 12px rgba(0, 0, 0, 0.08);
-            letter-spacing: -0.015em;
-        }
-
         /* Reduce excessive whitespace to "fill gaps" where sections felt too airy */
         .hero-grid {
             gap: 48px !important;
@@ -1329,11 +1316,10 @@
         }
 
         .quote-accent {
-            position: relative;
-            display: inline-block;
-            padding: 0 clamp(10px, 1.5vw, 14px);
-            box-shadow: inset 0 -10px 0 rgba(0, 0, 0, 0.08);
-        }
+			position: relative;
+			display: inline-block;
+			padding: 0 clamp(10px, 1.5vw, 14px);
+		}
 
         .quote-meta {
             position: relative;
@@ -1483,37 +1469,25 @@
             }
         }
 
+		.hero .hero-content .hero-title.gradient {
+			/* Set the background to your image */
+			background-image: url('https://img.freepik.com/premium-photo/unicorn-background-with-rainbow-sky-fantasy-colorful-space-galaxy-illustration_71374-1570.jpg?semt=ais_hybrid&w=740&q=80');
+			background-size: cover !important; 
+			background-position: center; 
 
+			/* These properties make the effect work */
+			-webkit-background-clip: text !important;
+			background-clip: text !important;
+			-webkit-text-fill-color: transparent !important;
+			color: transparent !important;
 
-        /* --- Ensure premium turquoise gradient shows and remains readable --- */
-        .hero .hero-content .hero-title.gradient {
-            background: linear-gradient(120deg, #20B2AA 0%, #00CED1 25%, #40E0D0 50%, #00CED1 75%, #20B2AA 100%) !important;
-            -webkit-background-clip: text !important;
-            background-clip: text !important;
-            -webkit-text-fill-color: transparent !important;
-            color: transparent !important;
-            background-size: 200% auto !important;
-            animation: turquoiseShine 6s linear infinite !important;
-            text-shadow: none !important;
-        }
+			/* Remove the old animation and text-shadow */
+			animation: none !important;
+			text-shadow: none !important;
+		}
 
-        @keyframes turquoiseShine {
-            0% {
-                background-position: 0% center;
-            }
-            100% {
-                background-position: 200% center;
-            }
-        }
-
-        100% {
-            background-position: 200% center;
-        }
-        }
-        100% {
-            background-position: 200% center;
-        }
-        }
+        
+       
 
         /* === Extraordinary Journey Section (scoped) === */
         #extraordinaryJourney {
@@ -1667,7 +1641,7 @@
         .freelance-pulse-indicator {
             width: 12px;
             height: 12px;
-            background: #14b8a6;
+            background: #30e3e8;
             border-radius: 50% !important;
             position: relative;
             animation: freelance-pulse-animation 2s infinite;
@@ -1770,6 +1744,15 @@
             -webkit-text-fill-color: black;
             background-clip: text; /* Standard property */
         }
+		.text-background-image {
+			/* Set the background image and its properties */
+			background-image: url('https://img.freepik.com/premium-photo/unicorn-background-with-rainbow-sky-fantasy-colorful-space-galaxy-illustration_71374-1570.jpg?semt=ais_hybrid&w=740&q=80');
+			background-size: cover;
+			background-position: center;
+			-webkit-background-clip: text;
+			background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
 
         /* Media query to show the message only on screens smaller than 768px */
         @media (max-width: 768px) {
@@ -1831,7 +1814,7 @@
 						<div class="quote-banner">
 							<div class="quote-mark">“</div>
 							<div class="quote-text">
-								<span class="quote-accent">Fortune favors<br>the bold</span>
+								<span class="quote-accent text-background-image">Fortune favors<br>the bold</span>
 							</div>
 							<div class="quote-meta">Statement of intent</div>
 						</div>
@@ -1868,7 +1851,7 @@
 			<div class="achievements-container">
 				<header class="main-header" id="main-header">
 					<h1 class="primary-title" id="primary-title">Multi-Domain Hall of Fame</h1>
-					<p class="primary-subtitle" id="primary-subtitle"><span class="metallic-text"><strong>Competing and winning in:</strong><br>music, startups, business, and engineering</span></p>
+					<p class="primary-subtitle" id="primary-subtitle"><span><strong>Competing and winning in:</strong><br>music, startups, business, and engineering</span></p>
 				</header>
 
 				<main class="main-content" id="main-content">
