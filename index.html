@@ -1070,6 +1070,258 @@
             text-align: center;
             flex-grow: 1;
         }
+		
+		/* Research Collaborations Section */
+		.collab-research-section {
+			padding: 80px 0;
+			background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
+			position: relative;
+			overflow: hidden;
+		}
+
+		.collab-research-section::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 1px;
+			background: linear-gradient(90deg, transparent, var(--black), transparent);
+		}
+
+		.collab-header {
+			text-align: center;
+			max-width: 900px;
+			margin: 0 auto 64px auto;
+		}
+
+		.collab-title {
+			font-size: clamp(2rem, 4vw, 3.2rem);
+			font-weight: 800;
+			letter-spacing: -0.02em;
+			margin-bottom: 16px;
+			background: linear-gradient(135deg, var(--black) 0%, var(--gray-600) 100%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+		}
+
+		.collab-subtitle {
+			font-size: 1.3rem;
+			color: var(--turquoise);
+			font-weight: 600;
+			margin-bottom: 24px;
+		}
+
+		.collab-description {
+			font-size: 1.1rem;
+			color: var(--gray-700);
+			line-height: 1.8;
+		}
+
+		.research-areas-showcase {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 32px;
+			margin-bottom: 80px;
+		}
+
+		.research-area-card {
+			background: var(--white);
+			border: 2px solid var(--black);
+			padding: 32px;
+			position: relative;
+			transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+			cursor: pointer;
+			text-align: center; /* Center all content in the card */
+		}
+
+		.research-area-card::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 0;
+			height: 4px;
+			background: var(--turquoise);
+			transition: width 0.3s ease;
+		}
+
+		.research-area-card:hover {
+			transform: translateY(-8px);
+			box-shadow: 0 24px 48px rgba(0, 0, 0, 0.15);
+		}
+
+		.research-area-card:hover::after {
+			width: 100%;
+		}
+
+		.research-icon-wrapper {
+			width: 60px;
+			height: 60px;
+			background: var(--black);
+			color: var(--white);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.8rem;
+			margin: 0 auto 20px auto; /* Added auto margins to center horizontally */
+		}
+
+		.research-area-card h3 {
+			font-size: 1.4rem;
+			font-weight: 800;
+			margin-bottom: 16px;
+			color: var(--black);
+		}
+
+		.research-area-card p {
+			color: var(--gray-700);
+			line-height: 1.6;
+			margin-bottom: 20px;
+		}
+
+		.research-tags {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px;
+		}
+
+		.research-tags span {
+			background: var(--turquoise);
+			color: var(--white);
+			padding: 6px 12px;
+			font-size: 0.75rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+		}
+
+		.collab-types-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: 24px;
+			margin-bottom: 60px;
+		}
+
+		.collab-type-card {
+			background: var(--white);
+			border: 1px solid var(--gray-300);
+			padding: 28px;
+			position: relative;
+			transition: all 0.25s ease;
+		}
+
+		.collab-type-card:hover {
+			border-color: var(--black);
+			transform: translateX(4px);
+			box-shadow: -4px 0 0 0 var(--turquoise);
+		}
+
+		.collab-type-header {
+			display: flex;
+			align-items: center;
+			justify-content: center; /* Center the header content */
+			gap: 12px;
+			margin-bottom: 16px;
+		}
+
+		.collab-type-header i {
+			font-size: 1.5rem;
+			color: var(--turquoise);
+		}
+
+		.collab-type-header h4 {
+			font-size: 1.2rem;
+			font-weight: 700;
+			color: var(--black);
+		}
+
+		.collab-type-card p {
+			color: var(--gray-700);
+			line-height: 1.6;
+			margin-bottom: 16px;
+		}
+
+		.collab-cta {
+			color: var(--turquoise);
+			font-weight: 700;
+			font-size: 0.9rem;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+		}
+
+		.collab-call-to-action {
+			background: var(--black);
+			padding: 48px;
+			text-align: center;
+		}
+
+		.cta-content h3 {
+			color: var(--white);
+			font-size: 2rem;
+			font-weight: 800;
+			margin-bottom: 16px;
+		}
+
+		.cta-content p {
+			color: var(--gray-300);
+			font-size: 1.1rem;
+			line-height: 1.6;
+			max-width: 600px;
+			margin: 0 auto 32px auto;
+		}
+
+		.collab-button {
+			background: var(--turquoise);
+			color: var(--white);
+			border: none;
+			padding: 16px 32px;
+			font-size: 1.1rem;
+			font-weight: 700;
+			cursor: pointer;
+			display: inline-flex;
+			align-items: center;
+			gap: 12px;
+			transition: all 0.3s ease;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+		}
+
+		.collab-button:hover {
+			background: var(--dark-turquoise);
+			transform: translateX(4px);
+		}
+
+		.collab-button i {
+			transition: transform 0.3s ease;
+		}
+
+		.collab-button:hover i {
+			transform: translateX(4px);
+		}
+		a.collab-button {
+			text-decoration: none;
+			display: inline-flex;
+		}
+
+		a.collab-button:visited {
+			color: var(--white);
+		}
+		/* Responsive */
+		@media (max-width: 768px) {
+			.research-areas-showcase {
+				grid-template-columns: 1fr;
+			}
+			
+			.collab-types-grid {
+				grid-template-columns: 1fr;
+			}
+			
+			.collab-call-to-action {
+				padding: 32px 20px;
+			}
+		}
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -1448,6 +1700,15 @@
                 margin-left: 0;
             }
         }
+		
+		a.collab-button {
+			text-decoration: none;
+			display: inline-flex;
+		}
+
+		a.collab-button:visited {
+			color: var(--white);
+		}
 
         /* Premium metallic gradient for hero title */
         .hero-title.gradient {
@@ -1792,6 +2053,7 @@
 				<a href="#projects" class="nav-link">Projects</a>
 				<a href="#experience" class="nav-link">Experience</a>
 				<a href="#community" class="nav-link">Community</a>
+				<a href="#research-collab" class="nav-link">Open call for collaboration</a>
 			</div>
 		</nav>
 
@@ -1804,10 +2066,10 @@
 						<div class="freelance-hire-badge">
 							<div class="freelance-pulse-indicator"></div>
 							<div class="freelance-hire-text-wrapper">
-								<div class="freelance-hire-title">Upcoming Doctoral Researcher @ TUM (CIT)</div>
+								<div class="freelance-hire-title">Upcoming Doctoral Researcher at TUM (CIT)</div>
 							</div>
-						</div>
-						<!--<p style="font-size:0.9rem; color: var(--gray-600); margin-top: 12px;"><em></em></p><br>--> 
+						</div><br><br>
+						<img src="https://www.dwih-tokyo.org/files/2023/11/DWIH-Coffee-Talk_Teaserbild-954x537.jpg" alt="TUM Logo" class="tum-logo" style="width: 200px; height: auto;">
 						<p class="hero-description">
 							Artificially intelligent, naturally sentient. Cross-functional engineering leader based in the beautiful city of Munich in Germany, bridging AI innovation, product strategy, and marketing excellence.<br>
 							Open-source contributor specializing in semantic web technologies, knowledge graphs, and enterprise AI
@@ -2398,6 +2660,133 @@
 				</div>
 			</div>
 		</section>
+		
+		<!-- Research Collaborations Section -->
+		<section class="collab-research-section" id="research-collab">
+			<div class="container">
+				<div class="collab-header">
+					<h2 class="collab-title">Open for Research Collaborations</h2>
+					<p class="collab-subtitle">Seeking visionary partners to explore the frontiers of MarTech & AI</p>
+					<p class="collab-description">
+						I'm actively pursuing groundbreaking research at the intersection of marketing technology, intelligent commerce, and human-computer interaction. 
+						Whether you bring <strong>data</strong>, <strong>capital</strong>, <strong>code</strong>, or <strong>scientific network</strong>, 
+						let's push the boundaries of what's possible in Generative Engine Optimization (GEO) and Applied AI.
+					</p>
+				</div>
+
+				<div class="research-areas-showcase">
+					<div class="research-area-card" data-area="martech">
+						<div class="research-icon-wrapper">
+							<i class="fas fa-bullseye"></i>
+						</div>
+						<h3>MarTech Intelligence</h3>
+						<p>Building next-gen marketing automation systems that learn, adapt, and optimize in real-time using LLMs and knowledge graphs.</p>
+						<div class="research-tags">
+							<span>Semantic SEO</span>
+							<span>Content Graphs</span>
+							<span>Attribution Models</span>
+						</div>
+					</div>
+
+					<div class="research-area-card" data-area="commerce">
+						<div class="research-icon-wrapper">
+							<i class="fas fa-network-wired"></i>
+						</div>
+						<h3>Intelligent Commerce</h3>
+						<p>Revolutionizing e-commerce through AI agents that understand intent, predict behavior, and personalize at scale.</p>
+						<div class="research-tags">
+							<span>Conversational Commerce</span>
+							<span>Dynamic Pricing</span>
+							<span>Supply Chain AI</span>
+						</div>
+					</div>
+
+					<div class="research-area-card" data-area="geo">
+						<div class="research-icon-wrapper">
+							<i class="fas fa-dna"></i>
+						</div>
+						<h3>Generative Engine Optimization</h3>
+						<p>Pioneering the future of content discovery in AI-first search experiences and answer engines.</p>
+						<div class="research-tags">
+							<span>LLM Optimization</span>
+							<span>RAG Systems</span>
+							<span>AI Citations</span>
+						</div>
+					</div>
+
+					<div class="research-area-card" data-area="hci">
+						<div class="research-icon-wrapper">
+							<i class="fas fa-brain"></i>
+						</div>
+						<h3>Human-Computer Interaction</h3>
+						<p>Designing intuitive interfaces where AI augments human creativity rather than replacing it.</p>
+						<div class="research-tags">
+							<span>Cognitive Load</span>
+							<span>AI UX Patterns</span>
+							<span>Trust Mechanisms</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="collab-types-grid">
+					<div class="collab-type-card">
+						<div class="collab-type-header">
+							<i class="fas fa-database"></i>
+							<h4>Data Partners</h4>
+						</div>
+						<p>Access to unique datasets, user behavior patterns, or proprietary market insights for research validation.</p>
+						<div class="collab-cta">Bring the Data →</div>
+					</div>
+
+					<div class="collab-type-card">
+						<div class="collab-type-header">
+							<i class="fas fa-users"></i>
+							<h4>Human Capital</h4>
+						</div>
+						<p>Researchers, engineers, and domain experts passionate about pushing theoretical boundaries into production.</p>
+						<div class="collab-cta">Join the Team →</div>
+					</div>
+
+					<div class="collab-type-card">
+						<div class="collab-type-header">
+							<i class="fas fa-code"></i>
+							<h4>Engineering Partners</h4>
+						</div>
+						<p>Open-source contributors and technical architects ready to build scalable, reproducible research systems.</p>
+						<div class="collab-cta">Ship the Code →</div>
+					</div>
+
+					<div class="collab-type-card">
+						<div class="collab-type-header">
+							<i class="fas fa-coins"></i>
+							<h4>Funding Partners</h4>
+						</div>
+						<p>Visionary investors and organizations funding breakthrough research with real-world commercial applications.</p>
+						<div class="collab-cta">Fund the Future →</div>
+					</div>
+
+					<div class="collab-type-card">
+						<div class="collab-type-header">
+							<i class="fas fa-flask"></i>
+							<h4>Scientific Collaborators</h4>
+						</div>
+						<p>Academic institutions and research labs committed to peer-reviewed, rigorous methodology and publication.</p>
+						<div class="collab-cta">Publish Together →</div>
+					</div>
+				</div>
+
+				<div class="collab-call-to-action">
+					<div class="cta-content">
+					<h3>Ready to Shape the Future?</h3>
+					<p>I'm currently accepting proposals for 2026 research initiatives. Let's discuss how we can combine our strengths to create industry-defining innovations.</p>
+					<a href="https://www.linkedin.com/in/emilijagjorgjevska/" target="_blank" rel="noopener noreferrer" class="collab-button">
+						<span>Start a Conversation</span>
+						<i class="fas fa-arrow-right"></i>
+					</a>
+				</div>
+				</div>
+			</div>
+		</section>
 
 		<section class="literary-section" id="literary">
 			<div class="container">
@@ -2455,7 +2844,8 @@
 				</div>
 			</div>
 		</section>
-
+		
+		
 		<footer class="main-footer" id="main-footer">
 			<p>© 2025 Emilia Gjorgjevska. Multi-domain professional excellence.</p>
 		</footer>
@@ -2815,6 +3205,33 @@
             initAnimations();
             initHallOfFame();
         });
+		// Add this to your existing JavaScript initialization
+		document.addEventListener('DOMContentLoaded', () => {
+			// Animate research cards on hover
+			const researchCards = document.querySelectorAll('.research-area-card');
+			researchCards.forEach(card => {
+				card.addEventListener('mouseenter', function() {
+					this.style.borderColor = '#20B2AA';
+				});
+				
+				card.addEventListener('mouseleave', function() {
+					this.style.borderColor = '#000000';
+				});
+			});
+			
+			// Add to navigation
+			const navLinks = document.querySelector('.nav-links');
+			const newNavLink = document.createElement('a');
+			newNavLink.href = '#research-collab';
+			newNavLink.className = 'nav-link';
+			newNavLink.textContent = 'Research';
+			
+			// Insert before Contact link
+			const contactLink = navLinks.querySelector('a[href="#contact"]');
+			if (contactLink) {
+				navLinks.insertBefore(newNavLink, contactLink);
+			}
+		});
     </script>
 </body>
 </html>
