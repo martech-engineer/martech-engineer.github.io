@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<!-- 
+	Copyright: Emilija Gjorgjevska, 2025.
+    V.E.R.A. Product Page
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet V.E.R.A. - Verification of Evidence & Research Auditor</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* --- INHERITED DESIGN SYSTEM --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --turquoise: #20B2AA;
+            --dark-turquoise: #008B8B;
+            --gray-900: #111111;
+            --gray-800: #1a1a1a;
+            --gray-700: #2a2a2a;
+            --gray-600: #3a3a3a;
+            --gray-300: #d1d5db;
+            --gray-200: #e5e7eb;
+            --gray-100: #f3f4f6;
+            --bg: #ffffff;
+            --fg: #111827;
+            --border: #e5e7eb;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+            
+            /* VERA Specific Vars */
+            --vera-alert: #ef4444;
+            --vera-warning: #f59e0b;
+            --vera-success: #10b981;
+        }
+
+        html, body {
+            height: 100%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--black);
+            background: var(--white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- NAVIGATION (Consistent with Main Site) --- */
+        .nav {
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
+            width: auto;
+            max-width: 95%;
+        }
+
+        .nav-container {
+            background: rgba(255, 255, 255, 0.95); 
+            border: 1px solid var(--gray-200);
+            padding: 8px 12px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 4px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            padding: 10px 20px;
+            border-radius: 0;
+            text-decoration: none;
+            color: var(--gray-700);
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        /* --- HERO SECTION --- */
+        .vera-hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: var(--white);
+            padding-top: 150px;
+            padding-bottom: 100px;
+            text-align: center;
+        }
+
+        .vera-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Subtle grid pattern to suggest "data/audit" */
+            background-image: linear-gradient(var(--gray-200) 1px, transparent 1px),
+            linear-gradient(90deg, var(--gray-200) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.15;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .vera-badge {
+            display: inline-block;
+            background: var(--black);
+            color: var(--white);
+            padding: 8px 16px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            border: 1px solid var(--black);
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 7vw, 6.5rem);
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 0.9;
+            margin-bottom: 24px;
+            color: var(--black);
+        }
+
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            color: var(--gray-700);
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--turquoise);
+            color: var(--white);
+            padding: 18px 36px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: var(--dark-turquoise);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(32, 178, 170, 0.2);
+        }
+
+        /* --- THE PROBLEM --- */
+        .problem-section {
+            padding: 120px 0;
+            background: var(--gray-900);
+            color: var(--white);
+            position: relative;
+        }
+
+        .section-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .problem-text h2 {
+            font-size: 3rem;
+            margin-bottom: 32px;
+            line-height: 1.1;
+        }
+
+        .problem-text p {
+            color: var(--gray-300);
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+            line-height: 1.8;
+        }
+
+        .quote-block {
+            border-left: 4px solid var(--vera-alert);
+            padding-left: 24px;
+            margin: 32px 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--white);
+            font-style: italic;
+        }
+
+        .lie-detector-visual {
+            background: var(--gray-800);
+            border: 1px solid var(--gray-700);
+            padding: 40px;
+            position: relative;
+        }
+        
+        .lie-item {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--gray-700);
+        }
+
+        .lie-claim {
+            font-family: monospace;
+            color: var(--turquoise);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .lie-reality {
+            color: var(--gray-300);
+            font-size: 0.95rem;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .lie-reality i {
+            color: var(--vera-alert);
+            margin-top: 4px;
+        }
+
+        /* --- HOW VERA WORKS --- */
+        .functionality-section {
+            padding: 120px 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: var(--black);
+            letter-spacing: -0.02em;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .feature-card {
+            padding: 40px;
+            border: 1px solid var(--gray-200);
+            background: var(--white);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            border-color: var(--black);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            color: var(--black);
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .feature-desc {
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        /* --- THE REPORT CARD --- */
+        .report-section {
+            padding: 120px 0;
+            background: var(--gray-100);
+        }
+
+        .report-demo {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            border: 1px solid var(--gray-200);
+        }
+
+        .report-header {
+            background: var(--black);
+            color: var(--white);
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .report-title {
+            font-family: monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 1.2rem;
+        }
+
+        .grade-stamp {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 4rem;
+            line-height: 1;
+            color: var(--vera-warning); /* Default to medium grade */
+            border: 4px solid var(--vera-warning);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(-15deg);
+        }
+
+        .report-body {
+            padding: 40px;
+        }
+
+        .criteria-list {
+            margin: 30px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .criteria-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--gray-200);
+            padding-bottom: 8px;
+        }
+
+        .criteria-label {
+            font-weight: 600;
+            color: var(--gray-700);
+        }
+
+        .criteria-val {
+            font-family: monospace;
+        }
+
+        /* Warning Labels */
+        .warning-label-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .warning-label {
+            background: #FFF4E5;
+            color: #B45309;
+            border: 1px solid #FCD34D;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .warning-label.severe {
+            background: #FEF2F2;
+            color: #991B1B;
+            border-color: #FECACA;
+        }
+
+        /* --- AUDIENCE --- */
+        .audience-section {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .audience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        .audience-tag {
+            padding: 12px 24px;
+            background: var(--white);
+            border: 1px solid var(--gray-300);
+            font-weight: 600;
+            color: var(--gray-800);
+            transition: all 0.2s ease;
+        }
+
+        .audience-tag:hover {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+        }
+
+        /* --- FOOTER --- */
+        .main-footer {
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            background: var(--gray-100);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .section-split {
+                grid-template-columns: 1fr;
+            }
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            .criteria-list {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        /* Custom Texture Text (Unicorn) */
+        .unicorn-text {
+            background-image: url('https://img.freepik.com/premium-photo/unicorn-background-with-rainbow-sky-fantasy-colorful-space-galaxy-illustration_71374-1570.jpg?semt=ais_hybrid&w=740&q=80');
+            background-size: cover;
+            background-position: center;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- NAV (Replicated for continuity) -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-links">
+                <!-- Assuming index.html is the main file -->
+                <a href="index (2).html" class="nav-link">Home</a>
+                <a href="index (2).html#hall-of-fame" class="nav-link">Hall of Fame</a>
+                <a href="index (2).html#strategy" class="nav-link">Strategy</a>
+                <a href="#" class="nav-link active">V.E.R.A.</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="vera-hero">
+        <div class="container hero-content animate-in">
+            <span class="vera-badge">Product Launch</span>
+            <h1 class="hero-title">Meet <span class="unicorn-text">V.E.R.A.</span></h1>
+            <p class="hero-subtitle">Verification of Evidence & Research Auditor</p>
+            <p class="hero-description">
+                Tired of being lied to with "data"? V.E.R.A. is the skeptical teammate who interrogates claims instead of summarizing them.
+            </p>
+            <a href="https://chatgpt.com/g/g-674482c3c1e88191986c7554f67d4ccf-v-e-r-a-verification-of-evidence-auditor" target="_blank" class="cta-button">
+                Start Auditing (Free Custom GPT) <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- THE PROBLEM (Manifesto) -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="section-split">
+                <div class="problem-text animate-in">
+                    <h2>"Results increased by 300%."</h2>
+                    <p>You know the type of content. "We analyzed millions of data points." "Our AI-powered solution delivers unmatched performance."</p>
+                    <p>And when you squint at the details... There are no details.</p>
+                    <div class="quote-block">
+                        No sample size. No timeframe. No methodology. Just vibes and a chart.
+                    </div>
+                    <p>Classic linguistic convergence. Nowadays, different brands using similar AI tools produce statistically similar content over time. In a world where everything is "AI-powered" and "data-driven," we don't just need more content. We need more accountability.</p>
+                </div>
+                
+                <div class="lie-detector-visual animate-in">
+                    <h3 style="margin-bottom: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Linguistic Interrogation</h3>
+                    
+                    <div class="lie-item">
+                        <div class="lie-claim">"Our study shows 5x ROI..."</div>
+                        <div class="lie-reality"><i class="fas fa-exclamation-triangle"></i> <span>Sample size: 3 internal employees. Not statistically significant.</span></div>
+                    </div>
+
+                    <div class="lie-item">
+                        <div class="lie-claim">"Proprietary AI algorithm..."</div>
+                        <div class="lie-reality"><i class="fas fa-exclamation-triangle"></i> <span>No technical documentation provided. Methodology undefined.</span></div>
+                    </div>
+
+                    <div class="lie-item">
+                        <div class="lie-claim">"Industry-leading performance..."</div>
+                        <div class="lie-reality"><i class="fas fa-exclamation-triangle"></i> <span>Comparative data missing. "Leading" metric undefined.</span></div>
+                    </div>
+
+                    <div style="margin-top: 20px; font-family: monospace; color: var(--gray-300);">
+                        > SCANNING...<br>
+                        > DETECTING FLUFF...<br>
+                        > VERDICT: PROMOTIONAL
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="functionality-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Grumpy Peer Reviewer</h2>
+                <p class="hero-description">
+                    Most AI summarizes. V.E.R.A. interrogates. It asks the questions you wish you had time to ask.
+                </p>
+            </div>
+
+            <div class="grid-3">
+                <div class="feature-card">
+                    <i class="fas fa-search-dollar feature-icon"></i>
+                    <h3 class="feature-title">Call It Out</h3>
+                    <p class="feature-desc">
+                        V.E.R.A. classifies content brutally. Is it an "Empirical Study" or just a "Sales Pitch wearing a lab coat"? It distinguishes between Experience Reports, Exploratory Analysis, and pure Marketing Fluff.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-microscope feature-icon"></i>
+                    <h3 class="feature-title">Methodology Check</h3>
+                    <p class="feature-desc">
+                        It hunts for the basics: Where did this data come from? How was it collected? What's the sample size? Could anyone reproduce this? If the answer is "no," V.E.R.A. says so.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <i class="fas fa-balance-scale feature-icon"></i>
+                    <h3 class="feature-title">Evidence Grading</h3>
+                    <p class="feature-desc">
+                        From <strong>Grade A</strong> (Strong Evidence) down to <strong>Grade F</strong> (Unsubstantiated). It evaluates data transparency, technical depth, reproducibility, and independent validation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REPORT CARD DEMO -->
+    <section class="report-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Warning Labels Included</h2>
+                <p>Because nobody has time to read 30 pages of fluff.</p>
+            </div>
+
+            <div class="report-demo animate-in">
+                <div class="report-header">
+                    <span class="report-title">V.E.R.A. Audit Report #001</span>
+                    <div style="display: flex; gap: 8px;">
+                        <span style="width: 12px; height: 12px; background: #ff5f56; border-radius: 50%;"></span>
+                        <span style="width: 12px; height: 12px; background: #ffbd2e; border-radius: 50%;"></span>
+                        <span style="width: 12px; height: 12px; background: #27c93f; border-radius: 50%;"></span>
+                    </div>
+                </div>
+                <div class="report-body">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                        <div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 4px;">"The Future of Generative AI"</h3>
+                            <p style="color: var(--gray-600); font-style: italic;">Whitepaper Analysis</p>
+                        </div>
+                        <div class="grade-stamp">D+</div>
+                    </div>
+
+                    <p style="color: var(--black); font-weight: 600;">Classification: <span style="background: var(--gray-100); padding: 2px 6px;">Marketing Opinion Piece</span></p>
+
+                    <div class="criteria-list">
+                        <div class="criteria-item">
+                            <span class="criteria-label">Data Transparency</span>
+                            <span class="criteria-val" style="color: var(--vera-alert);">Low</span>
+                        </div>
+                        <div class="criteria-item">
+                            <span class="criteria-label">Methodology Clarity</span>
+                            <span class="criteria-val" style="color: var(--vera-warning);">Vague</span>
+                        </div>
+                        <div class="criteria-item">
+                            <span class="criteria-label">Reproducibility</span>
+                            <span class="criteria-val" style="color: var(--vera-alert);">Impossible</span>
+                        </div>
+                        <div class="criteria-item">
+                            <span class="criteria-label">Sample Scale</span>
+                            <span class="criteria-val">N/A (Anecdotal)</span>
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 20px; font-weight: 700;">Auditor Notes:</p>
+                    <div class="warning-label-container">
+                        <div class="warning-label">
+                            <i class="fas fa-exclamation-circle"></i> Primarily Promotional
+                        </div>
+                        <div class="warning-label severe">
+                            <i class="fas fa-times-circle"></i> Claims Unverified
+                        </div>
+                        <div class="warning-label">
+                            <i class="fas fa-comment-dots"></i> Methodology Not Described
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AUDIENCE -->
+    <section class="audience-section">
+        <div class="container">
+            <h2 class="section-title">Who is this for?</h2>
+            <p>If you work in Marketing, Growth, Strategy, Analytics, Product, or Leadership—you need this.</p>
+            
+            <div class="audience-tags">
+                <div class="audience-tag">CMOs</div>
+                <div class="audience-tag">Growth Hackers</div>
+                <div class="audience-tag">Data Scientists</div>
+                <div class="audience-tag">Content Strategists</div>
+                <div class="audience-tag">Investors</div>
+                <div class="audience-tag">Product Managers</div>
+            </div>
+
+            <div style="margin-top: 60px;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 24px; font-weight: 800;">"Okay, but how do we know this is true?"</h3>
+                <a href="https://chatgpt.com/g/g-674482c3c1e88191986c7554f67d4ccf-v-e-r-a-verification-of-evidence-auditor" target="_blank" class="cta-button">
+                    Stress-Test Your Case Studies
+                </a>
+                <p style="margin-top: 16px; color: var(--gray-600); font-size: 0.9rem;">Free Custom GPT. Forever.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 Emilia Gjorgjevska. Built for honest builders.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Intersection Observer for Fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-in').forEach(el => {
+            el.style.opacity = 0; // Set initial state for JS handling
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
