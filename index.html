@@ -63,7 +63,7 @@
             -webkit-font-smoothing: antialiased;
             text-rendering: optimizeLegibility;
         }
-
+		
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -155,7 +155,27 @@
             margin-left: auto;
             margin-right: auto;
         }
-
+		.tum-card-link {
+		    display: inline-flex;
+		    align-items: center;
+		    gap: 10px;
+		    padding: 12px 22px;
+		    border: 1px solid var(--gray-300);
+		    background: var(--white);
+		    color: var(--black);
+		    text-decoration: none;
+		    font-weight: 600;
+		    font-size: 0.9rem;
+		    letter-spacing: 0.04em;
+		    text-transform: uppercase;
+		    transition: all 0.3s ease;
+		}
+		
+		.tum-card-link:hover {
+		    background: var(--black);
+		    color: var(--white);
+		    border-color: var(--black);
+		}
         .stat-item {
             text-align: center;
             padding: 24px;
