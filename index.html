@@ -1683,6 +1683,52 @@
 	    margin: 0 8px;
 	    font-weight: 700;
 	}
+	/* Peer-reviewed acceptance badge */
+	.pub-badge {
+	    display: inline-flex;
+	    align-items: center;
+	    gap: 6px;
+	    font-size: 0.7rem;
+	    font-weight: 700;
+	    text-transform: uppercase;
+	    letter-spacing: 0.08em;
+	    color: var(--dark-turquoise);
+	    border: 1px solid rgba(32, 178, 170, 0.45);
+	    background: var(--white);
+	    padding: 5px 11px;
+	    margin-top: 12px;
+	    text-decoration: none;
+	    transition: all 0.3s ease;
+	}
+	.pub-badge:hover {
+	    background: #20B2AA;
+	    color: var(--white);
+	    border-color: #20B2AA;
+	}
+	
+	/* Publication citation block */
+	.pub-block {
+	    margin-top: 14px;
+	    padding: 14px 16px;
+	    border: 1px solid var(--border);
+	    border-left: 3px solid #20B2AA;
+	    background: rgba(32, 178, 170, 0.04);
+	}
+	.pub-block .pub-title {
+	    font-size: 0.9rem;
+	    font-weight: 700;
+	    color: var(--fg);
+	    line-height: 1.45;
+	    margin-bottom: 4px;
+	}
+	.pub-block .pub-authors {
+	    font-size: 0.8rem;
+	    color: var(--fg-secondary);
+	    line-height: 1.5;
+	}
+	.pub-block .pub-authors strong {
+	    color: var(--fg);
+	}
     </style>
     <!-- ... scripts ... -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TMN0THB2K2"></script>
@@ -2168,6 +2214,13 @@
 							<p class="project-description">
 								The first comprehensive ontology for SEO, serving as a semantic operating system for modern content strategy. Enables AI agents, apps, and researchers to reason about, audit, and optimize web content through standardized vocabulary and linked data principles.
 							</p>
+							<div class="pub-block">
+							    <p class="pub-title">SEOntology: A Domain Ontology for Semantic Modeling of Search Engine Optimization Workflows</p>
+							    <p class="pub-authors"><strong>Emilija Gjorgjevska</strong>, David Riccitelli, Milos Jovanovik &amp; Andrea Volpini</p>
+							    <a href="https://2026-eu.semantics.cc/page/accepted_research" class="pub-badge" target="_blank" rel="noopener noreferrer">
+							        <i class="fas fa-check-circle"></i> Accepted @ SEMANTiCS 2026
+							    </a>
+							</div>
 							<div class="project-tech">
 								<span class="tech-tag">OWL/RDF</span>
 								<span class="tech-tag">Semantic Web</span>
